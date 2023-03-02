@@ -1,0 +1,1231 @@
+
+<!-- Sample tidy command: tidy.exe -errors doc/Taamey_D.html -->
+<!-- E.g.: "C:/Program Files/tidy 5.8.0/bin/tidy.exe" -errors doc/Taamey_D.html -->
+<!-- Prefix the above command with & (ampersand) for PowerShell -->
+<!-- quotes and apostrope (for copy/paste) “” ’s -->
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="Taamey-doc-styles.css">
+    <title>The Taamey D font for Biblical Hebrew</title>
+</head>
+<body>
+<h1>The Taamey D font for Biblical Hebrew</h1>
+<p>Author: Ben Denckla</p>
+<p>Font version: 0.921</p>
+<!-- Hebrew date below can be gotten from https://www.hebcal.com/converter -->
+<p>Document version: 2023-02-27 / <span class="font-family-taamey-frank-clm-inline">ו׳ בַּאֲדָר תשפ״ג</span></p>
+
+<h2>Introduction</h2>
+<p>
+    Taamey&nbsp;D is derived from Taamey Frank <span class="small-caps">Clm</span>,
+    a font designed by Yoram Gnat, of blessed memory.
+    Taamey&nbsp;D’s goal is to support every word
+    in the following two Hebrew Bible datasets:</p>
+        <ul>
+            <li>
+                <span class="small-caps">Uxlc</span>
+                (<span class="hair-space-before">Unicode</span>
+                <span class="small-caps">xml</span> Leningrad Codex), whose canonical edition is hosted at
+                <a href="https://tanach.us">tanach.us</a></li>
+            <li>
+                <span class="small-caps">Mam</span>
+                (<span class="hair-space-before">Miqra</span>
+                according to the Masorah), whose canonical edition is hosted at
+                <a href="https://he.wikisource.org/wiki/%D7%9E%D7%A9%D7%AA%D7%9E%D7%A9:Dovi/%D7%9E%D7%A7%D7%A8%D7%90_%D7%A2%D7%9C_%D7%A4%D7%99_%D7%94%D7%9E%D7%A1%D7%95%D7%A8%D7%94">Hebrew Wikisource</a></li>
+        </ul>
+<p>
+This document has the following sections:
+</p>
+<ul>
+<li><a href="#h2_distinctive_features">Distinctive features</a></li>
+<li><a href="#h2_challenging_cases">Challenging cases</a></li>
+<li><a href="#h2_alef_xolam">The <span class="romanized">alef ḥolam</span> vowel</a></li>
+<li><a href="#h2_notes_on_the_limited_corpus">Notes on the limited corpus</a></li>
+</ul>
+
+<p>
+    Many people have helped me develop this font and
+    develop my Hebrew enough to develop this font.
+    Thanks to:
+</p>
+<ul>
+    <li>Simon Cozens,
+        for “collidoscope” and his other useful software for font development,
+        and for helping me get started using it.
+    </li>
+    <li>Scott-Martin Kosofsky,
+        for answering my questions about Hebrew fonts &amp; typesetting.
+    </li>
+    <li>John Hudson,
+        for answering my questions about Hebrew fonts &amp; typesetting.
+        I’d also like to thank John
+        for his <span class="small-caps">Sbl</span> Hebrew Font User Manual,
+        the best reference for how to use Unicode
+        to tell a font what you want in Biblical Hebrew.
+    </li>
+    <li>Avi Kadish,
+        for teaching me much of what I know about the Hebrew Bible and
+        for giving me the opportunity to work on <span class="small-caps">mam</span>.
+    </li>
+    <li>Chris Kimball,
+        for giving me the opportunity to work on <span class="small-caps">uxlc</span>.
+    </li>
+    <li>Ron Tabeka,
+        for teaching me Hebrew &amp; chanting.
+    </li>
+</ul>
+<h2 id="h2_distinctive_features">Distinctive features</h2><p>
+This section describes the most distinctive features of
+        Taamey&nbsp;D, as compared to Taamey Frank.
+</p>
+<h3>Upside-down <span class="romanized">qamats qatan</span></h3><p>
+
+    As in many fonts, in Taamey&nbsp;D
+    it can be hard to distinguish <span class="romanized">qamats qatan</span> from normal <span class="romanized">qamats</span>.
+    (Despite what its name might suggest, <span class="romanized">qamats qatan</span> is slightly taller.)
+    Taamey&nbsp;D provides a stylistic set, <code>ss03</code>, in which the
+    <span class="romanized">qamats qatan</span> shape is upside-down.
+    This makes it easy to distinguish.
+    Here is a word [<a href="#ref_1" id="callout_1" title="Gen. 6:15">1</a>]
+    rendered both ways:
+
+</p>
+<table dir="rtl">
+    <tr>
+    <th></th>
+    <th></th>
+    </tr>
+    <tr>
+    <td class="font-family-taamey-d">רׇחְבָּ֔הּ</td>
+    <td class="">Taamey&nbsp;D</td>
+    </tr>
+    <tr>
+    <td class="font-family-taamey-d qamats_qatan_hafukh">רׇחְבָּ֔הּ</td>
+    <td class="">Taamey&nbsp;D <code>ss03</code></td>
+    </tr>
+</table><p>
+
+(This word is from <span class="small-caps">mam</span> since <span class="small-caps">uxlc</span> does not use <span class="romanized">qamats qatan</span>.)
+This upside-down feature is mainly intended for use within
+this document, but it might find use in other places such as teaching
+materials.
+
+</p>
+<h3>The <span class="romanized">ḥataf qamats qatan</span> vowel</h3><p>
+    Taamey&nbsp;D provides a stylistic set, <code>ss01</code>, in which the
+    glyph for <span class="romanized">ḥataf qamats</span> matches <span class="romanized">qamats qatan</span>.
+    Below I render an example word [<a href="#ref_2" id="callout_2" title="Isa. 66:12">2</a>]
+    in default Taamey&nbsp;D, and
+    in Taamey&nbsp;D with <code>ss01</code> selected.
+    Corresponding upside-down versions are provided as well.
+    This word’s third <span class="romanized">qamats</span> is a normal <span class="romanized">qamats</span>,
+    which helps as a reference.
+    Letters with matching <span class="romanized">qamats</span> shapes are highlighted.
+</p>
+<table dir="rtl">
+    <tr>
+    <th>Taamey&nbsp;D</th>
+    <th>Taamey&nbsp;D <code>ss01</code></th>
+    </tr>
+    <tr class="font-family-taamey-d">
+    <td class="">תְּשׇׁ<span class="attention">עֳשָֽׁ</span>עוּ׃</td>
+    <td class=" xataf_qamats_qatan">תְּ<span class="attention">שׇׁעֳ</span>שָֽׁעוּ׃</td>
+    </tr>
+    <tr class="font-family-taamey-d">
+    <td class=" qamats_qatan_hafukh">תְּשׇׁ<span class="attention">עֳשָֽׁ</span>עוּ׃</td>
+    <td class=" xataf_qamats_qatan_hafukh">תְּ<span class="attention">שׇׁעֳ</span>שָֽׁעוּ׃</td>
+    </tr>
+</table>
+<h3>The <span class="romanized">qamats qatan</span> vowel with a short <span class="romanized">meteg</span></h3>
+<p><span class="small-caps">mam</span> records two “<span class="romanized">qamats</span> variants” of some words.
+    <!-- italic-opening-double-quotation-mark “<span class="romanized">qamats</span> ...” -->
+    These are words having a <span class="romanized">qamats</span> that is:
+    <ul>
+        <li>a <span class="romanized">qamats qatan</span>, according to theory
+        (abbrev. ד (<span class="hair-space-after"><span class="romanized">dalet</span></span>))</li>
+        <!-- italic-in-parens (<span class="romanized">dalet</span>) -->
+        <li>a normal <span class="romanized">qamats</span>, according to Sephardic practice
+        (abbrev. ס (<span class="romanized">samekh</span>))</li>
+        <!-- italic-in-parens (<span class="romanized">samekh</span>) -->
+    </ul>
+    <p>
+    For example, below are <span class="small-caps">mam</span>’s two variant pointings of a word [<a href="#ref_3" id="callout_3" title="Gen. 19:34">3</a>].
+    The pointings are rendered in both default and upside-down Taamey&nbsp;D.
+    The <span class="romanized">mem</span> whose <span class="romanized">qamats</span> varies is highlighted.
+    Below I am just showing the “<span class="romanized">qamats</span> variants” feature of <span class="small-caps">mam</span>:
+    <!-- italic-opening-double-quotation-mark “<span class="romanized">qamats</span> ...” -->
+    I am not showing the short <span class="romanized">meteg</span> feature of Taamey&nbsp;D yet.
+</p>
+<table dir="rtl">
+    <tr>
+    <th>ד</th>
+    <th>ס</th>
+    </tr>
+    <tr class="font-family-taamey-d">
+    <td class="xataf_qamats_qatan">מִֽ<span class="attention">מׇּ</span>חֳרָ֔ת</td>
+    <td class="xataf_qamats_qatan">מִֽ<span class="attention">מָּ</span>חֳרָ֔ת</td>
+    </tr>
+    <tr class="font-family-taamey-d">
+    <td class="xataf_qamats_qatan_hafukh">מִֽ<span class="attention">מׇּ</span>חֳרָ֔ת</td>
+    <td class=" xataf_qamats_qatan_hafukh">מִֽ<span class="attention">מָּ</span>חֳרָ֔ת</td>
+    </tr>
+</table>
+<p>
+    Taamey&nbsp;D provides a stylistic set, <code>ss02</code>, in which the
+    glyph for <span class="romanized">qamats qatan</span> has a short <span class="romanized">meteg</span>.
+    This allows both variants to be presented on a single word.
+    A <span class="romanized">qamats qatan</span> with a small <span class="romanized">meteg</span>
+    represents a <span class="romanized">qamats</span> that is <span class="romanized">qatan</span> only in the theoretical variant.
+    Below is our example theoretical variant shown
+    with <code>ss02</code> selected
+    (in addition to <code>ss01</code>, for <span class="romanized">ḥataf qamats qatan</span>):
+</p>
+<table dir="rtl">
+    <tr>
+    <th>ד+ס</th>
+    </tr>
+    <tr class="font-family-taamey-d">
+    <td class="qamats_qatan_meteg_qatan">מִֽ<span class="attention">מׇּ</span>חֳרָ֔ת</td>
+    </tr>
+    <tr class="font-family-taamey-d">
+    <td class="qamats_qatan_meteg_qatan_hafukh">מִֽ<span class="attention">מׇּ</span>חֳרָ֔ת</td>
+    </tr>
+</table><h3>Distinct <span class="romanized">atnaḥ hafukh</span> &amp; <span class="romanized">yeraḥ ben yomo</span></h3><p>
+This phrase [<a href="#ref_4" id="callout_4" title="Psa. 5:10">4</a>] shows that Taamey&nbsp;D distinguishes <span class="romanized">yeraḥ ben yomo</span> from <span class="romanized">atnaḥ hafukh</span>:
+</p>
+<p>
+    <span class="font-family-taamey-d">
+        כִּ֤י
+        <span class="attention">אֵ֪</span>ין
+        בְּפִ֡יהוּ
+        נְכוֹנָה֮
+        קִרְ<span class="attention">בָּ֢</span>ם
+        הַ֫וּ֥וֹת
+    </span>
+</p>
+<p>Taamey Frank &amp; many other fonts do not distinguish these accents.
+    Such fonts give an <span class="romanized">atnaḥ hafukh</span> shape for both code points.
+    This shortcoming likely stems from the influence of <span class="small-caps">bhs</span>.
+</p><p>
+<span class="small-caps">Bhs</span> is so influential that even its shortcomings
+still reverberate through the Biblical world, showing up not only
+in other editions of the Hebrew Bible but also in fonts!
+<span class="small-caps">Bhs</span> identifies an accent which it calls
+“<span class="romanized">Galgal</span> vel <span class="romanized">Jèraḥ</span>” (“<span class="romanized">galgal</span> or <span class="romanized">yeraḥ</span> [<span class="romanized">ben yomo</span>]”).
+<!-- italic-in-double-quotation-marks “<span class="romanized">Galgal</span> vel <span class="romanized">Jèraḥ</span>” -->
+<!-- italic-opening-double-quotation-mark “<span class="romanized">galgal</span> ...” -->
+<!-- italic-in-square-brackets [<span class="romanized">ben yomo</span>] -->
+So far so good, since <span class="romanized">yeraḥ ben yomo</span> is also known as <span class="romanized">galgal</span>.
+But then things fall short in the following ways:
+</p>
+<ul>
+<li><span class="small-caps">Bhs</span> gives an <span class="romanized">atnaḥ hafukh</span> shape to “<span class="romanized">Galgal</span> vel <span class="romanized">Jèraḥ</span>.”</li>
+<li><span class="small-caps">Bhs</span> does not identify a distinct <span class="romanized">atnaḥ hafukh</span> accent.</li>
+</ul>
+<p>
+So, many fonts did the following:
+</p>
+<ul>
+<li>Following <span class="small-caps">bhs</span>, they gave an <span class="romanized">atnaḥ hafukh</span> shape to <span class="romanized">yeraḥ ben yomo</span>.</li>
+<li>Quite reasonably, they gave an <span class="romanized">atnaḥ hafukh</span> shape to <span class="romanized">atnaḥ hafukh</span>.</li>
+</ul>
+<p>
+<span class="small-caps">Uxlc</span> used to follow <span class="small-caps">wlc</span>, which follows <span class="small-caps">bhs</span> closely.
+    So, <span class="small-caps">uxlc</span> used to use only the <span class="romanized">yeraḥ ben yomo</span> code point.
+    <span class="small-caps">Uxlc</span> started to distinguish <span class="romanized">yeraḥ ben yomo</span> from <span class="romanized">atnaḥ hafukh</span>
+    in version 1.3, released on 19 October 2021.
+    To be able to see this distinction, <a href="https://tanach.us">tanach.us</a> (<span class="small-caps">uxlc</span>’s canonical edition) switched its default font
+    to Taamey&nbsp;D.
+    Formerly it used <span class="small-caps">Sbl</span> Hebrew which, like many fonts, prevents
+    this distinction from being seen,
+    forcing even editions that make this distinction to still
+    look like <span class="small-caps">bhs</span>!
+</p>
+<h2 id="h2_challenging_cases">Challenging cases</h2><p>
+Below, I will render challenging cases in Taamey&nbsp;D &amp; three other fonts:
+</p>
+<ul>
+<li>Taamey Frank</li>
+<li><span class="small-caps">Sbl</span> Hebrew</li>
+<li>Ezra <span class="small-caps">Sil</span></li>
+</ul>
+<p>
+In these challenging cases, often at least one of those three fonts struggles.
+        Typically that takes the form of a collision or, if not actually a collision,
+        an infelicitous crowding of marks.
+        I am not showing these problems to ridicule these fonts.
+        I have the utmost respect for these fine fonts &amp; their authors.
+        I am showing these problems because one of the main goals of Taamey&nbsp;D
+        was to avoid such collisions &amp; crowding.
+</p>
+<p>
+It is probably not coincidental that
+        many of the challenging cases are not present in <span class="small-caps">uxlc</span>.
+        I suspect the corpus of concern for these fonts was limited to <span class="small-caps">uxlc</span> or
+        some other Unicode version of <span class="small-caps">wlc</span>.
+        This would make sense because, particularly in the non-Hebrew-speaking world:
+</p>
+<ul>
+<li><span class="small-caps">Uxlc</span> not only was, but remains the only well-known Unicode Hebrew Bible.</li>
+<li><span class="small-caps">Bhs</span> not only was, but remains hugely influential.
+            (<span class="small-caps">Uxlc</span> used to follow <span class="small-caps">wlc</span>, which follows <span class="small-caps">bhs</span> closely.)</li>
+</ul>
+
+<h3>The <span class="romanized">qamats qatan</span> vowel with <span class="romanized">merkha</span> or <span class="romanized">munaḥ</span></h3>
+<p><span class="small-caps">Uxlc</span> does not use <span class="romanized">qamats qatan</span>.
+    In <span class="small-caps">mam</span>, <span class="romanized">meteg</span> is the only below-mark that <span class="romanized">qamats qatan</span> appears with regularly.
+    But, in a handful of words in <span class="small-caps">mam</span>, <span class="romanized">merkha</span> or <span class="romanized">munaḥ</span> appears with <span class="romanized">qamats qatan</span>.
+    Probably because these words are so rare, some fonts struggle with them.
+    Below, in Taamey&nbsp;D, are two such words.
+    These words are followed by the relevant pointed letters of those examples,
+    rendered in all 4 of our standard fonts.
+    (I will point out that the gray <span class="romanized">maqaf</span> below is intentional, but I will
+    not elaborate on it here because it is irrelevant to the point at hand.)
+</p>
+<p class="wide-word-spacing">
+<span class="normal-word-spacing"><span class="font-family-taamey-d"><span class="attention">כׇּ֥</span>ל<span class="mam-implicit-maqaf">־</span>עַצְמוֹתַ֨י</span> [<a href="#ref_5" id="callout_5" title="Psa. 35:10">5</a>]</span> <span class="normal-word-spacing"><span class="font-family-taamey-d">עַל־כׇּל־<span class="attention">קׇ֣</span>דָשַׁ֔י</span> [<a href="#ref_6" id="callout_6" title="Eze. 44:13">6</a>]</span>
+</p>
+
+<table dir="rtl">
+    <tr>
+    <th>Taamey D</th>
+    <th>Taamey Frank</th>
+    <th><span class="small-caps">Sbl</span> Hebrew</th>
+    <th>Ezra <span class="small-caps">Sil</span></th>
+    </tr>
+    <tr>
+    <td class="font-family-taamey-d">כׇּ֥ קׇ֣</td>
+    <td class="font-family-taamey-frank-clm">כׇּ֥ קׇ֣</td>
+    <td class="font-family-sbl-hebrew">כׇּ֥ קׇ֣</td>
+    <td class="font-family-ezra-sil">כׇּ֥ קׇ֣</td>
+    </tr>
+</table>
+<p>
+    Only Ezra <span class="small-caps">Sil</span> &amp; Taamey&nbsp;D are collision-free.
+    (Actually Ezra <span class="small-caps">Sil</span> does have a collision, between the <span class="romanized">munaḥ</span> &amp; the <span class="romanized">qof</span>,
+    but that is unrelated to the <span class="romanized">qamats</span> being <span class="romanized">qatan</span>.)
+    When Taamey Frank &amp; <span class="small-caps">Sbl</span> Hebrew misbehave similarly,
+    as they do here,
+    it is not surprising, since the OpenType logic for Taamey Frank
+    is derived from <span class="small-caps">Sbl</span> Hebrew.
+</p>
+<h3>The <span class="romanized">geresh</span>-<span class="small-caps">tg</span> &amp; <span class="romanized">gershayim</span>-<span class="small-caps">tg</span> compound accents</h3>
+<!-- italic-dash <span class="romanized">geresh</span>- -->
+<!-- italic-dash gershayim- -->
+<p>Five words in <span class="small-caps">mam</span> have, on the same letter,
+<span class="romanized">telisha gedolah</span> preceded by either <span class="romanized">geresh</span> or <span class="romanized">gershayim</span>.
+    (Only 3 such words exist in <span class="small-caps">uxlc</span>.)
+    Some of these words, particularly those with <span class="romanized">geresh</span>, prove challenging to
+    some fonts.
+    Here are these words in our standard 4 fonts:
+</p>
+<table dir="rtl">
+    <tr>
+    <th>Taamey D</th>
+    <th>Taamey Frank</th>
+    <th><span class="small-caps">Sbl</span> Hebrew</th>
+    <th>Ezra <span class="small-caps">Sil</span></th>
+    </tr>
+    <tr>
+    <td class="font-family-taamey-d">שֻׁ֜֠בוּ</td>
+    <td class="font-family-taamey-frank-clm">שֻׁ֜֠בוּ</td>
+    <td class="font-family-sbl-hebrew">שֻׁ֜֠בוּ</td>
+    <td class="font-family-ezra-sil">שֻׁ֜֠בוּ</td>
+    </tr>
+    <tr>
+    <td class="font-family-taamey-d">וּ֜֠לְאֵ֜֠לֶּה</td>
+    <td class="font-family-taamey-frank-clm">וּ֜֠לְאֵ֜֠לֶּה</td>
+    <td class="font-family-sbl-hebrew">וּ֜֠לְאֵ֜֠לֶּה</td>
+    <td class="font-family-ezra-sil">וּ֜֠לְאֵ֜֠לֶּה</td>
+    </tr>
+    <tr>
+    <td class="font-family-taamey-d">זֶ֞֠ה</td>
+    <td class="font-family-taamey-frank-clm">זֶ֞֠ה</td>
+    <td class="font-family-sbl-hebrew">זֶ֞֠ה</td>
+    <td class="font-family-ezra-sil">זֶ֞֠ה</td>
+    </tr>
+    <tr>
+    <td class="font-family-taamey-d">זֹ֞֠את</td>
+    <td class="font-family-taamey-frank-clm">זֹ֞֠את</td>
+    <td class="font-family-sbl-hebrew">זֹ֞֠את</td>
+    <td class="font-family-ezra-sil">זֹ֞֠את</td>
+    </tr>
+    <tr>
+    <td class="font-family-taamey-d">קִ֞֠רְב֞֠וּ</td>
+    <td class="font-family-taamey-frank-clm">קִ֞֠רְב֞֠וּ</td>
+    <td class="font-family-sbl-hebrew">קִ֞֠רְב֞֠וּ</td>
+    <td class="font-family-ezra-sil">קִ֞֠רְב֞֠וּ</td>
+    </tr>
+</table>
+<p>(References are [<a href="#ref_7" id="callout_7" title="2Kgs. 17:13">7</a>], [<a href="#ref_8" id="callout_8" title="Eze. 48:10">8</a>], [<a href="#ref_9" id="callout_9" title="Gen. 5:29">9</a>], [<a href="#ref_10" id="callout_10" title="Tsef. 2:15">10</a>], and [<a href="#ref_11" id="callout_11" title="Lev. 10:4">11</a>].)
+    Two of the 5 words are not stressed on the first syllable:
+    <span class="romanized">uleleh</span> &amp; <span class="romanized">qirvu</span>.
+    For these two words, <span class="small-caps">mam</span> uses a clever but novel stress-helper
+    notation.
+    Taamey Frank &amp; <span class="small-caps">Sbl</span> Hebrew do not support that notation well
+    on <span class="romanized">uleleh</span>.
+</p>
+<p>Note that the <span class="romanized">alef ḥolam</span> feature
+    (discussed below) lessens the challenge of <span class="romanized">zot</span> above, because
+    it lessens competition between the <span class="romanized">ḥolam</span> dot &amp; the accents.
+    (All 4 fonts have this <span class="romanized">alef ḥolam</span> feature.)
+</p>
+<h3>Competition between <span class="romanized">ḥolam ḥaser</span> &amp; other above-marks</h3>
+<p>Particularly on narrow letters, <span class="romanized">ḥolam ḥaser</span> &amp; other above-marks compete for space.
+    Taamey&nbsp;D does its best to move the <span class="romanized">ḥolam ḥaser</span> out of the way, to the left, in such cases.
+    Many other fonts are not so savvy, and suffer collisions as a result.
+    Note that the examples below all involve stress helpers for accents other than <span class="romanized">pashta</span>.
+    Stress helpers for accents other than <span class="romanized">pashta</span> are rare in <span class="small-caps">uxlc</span>.
+    As I mentioned above,
+    I am not surprised that many fonts would struggle with words not present in <span class="small-caps">uxlc</span>,
+    since I suspect that the corpus of concern for many fonts
+    was limited to a Unicode version of <span class="small-caps">wlc</span>.
+    (References are [<a href="#ref_12" id="callout_12" title="Eze. 27:16">12</a>], [<a href="#ref_13" id="callout_13" title="1Sam. 14:24">13</a>], and [<a href="#ref_14" id="callout_14" title="2Chr. 14:7">14</a>].)
+</p>
+<table dir="rtl">
+    <tr>
+    <th>Taamey D</th>
+    <th>Taamey Frank</th>
+    <th><span class="small-caps">Sbl</span> Hebrew</th>
+    <th>Ezra <span class="small-caps">Sil</span></th>
+    </tr>
+    <tr>
+    <td class="font-family-taamey-d">בְּ֠נֹ֠פֶךְ</td>
+    <td class="font-family-taamey-frank-clm">בְּ֠נֹ֠פֶךְ</td>
+    <td class="font-family-sbl-hebrew">בְּ֠נֹ֠פֶךְ</td>
+    <td class="font-family-ezra-sil">בְּ֠נֹ֠פֶךְ</td>
+    </tr>
+    <tr>
+    <td class="font-family-taamey-d">וַיֹּ֩אֶל֩</td>
+    <td class="font-family-taamey-frank-clm">וַיֹּ֩אֶל֩</td>
+    <td class="font-family-sbl-hebrew">וַיֹּ֩אֶל֩</td>
+    <td class="font-family-ezra-sil">וַיֹּ֩אֶל֩</td>
+    </tr>
+    <tr>
+    <td class="font-family-taamey-d">וָרֹ֒מַח֒</td>
+    <td class="font-family-taamey-frank-clm">וָרֹ֒מַח֒</td>
+    <td class="font-family-sbl-hebrew">וָרֹ֒מַח֒</td>
+    <td class="font-family-ezra-sil">וָרֹ֒מַח֒</td>
+    </tr>
+</table>
+<p>For another example of competition between <span class="romanized">ḥolam ḥaser</span> &amp; another above-mark,
+    see the section below on stress-helper <span class="romanized">zarqa</span>.</p>
+<h3>The <span class="romanized">revia mugrash</span> accent pair</h3>
+<p>The <span class="romanized">revia mugrash</span> accent pair is only present in the <span class="romanized">sifrei emet</span> system of cantillation.
+    It is composed of <span class="romanized">revia</span> &amp; the prepositive accent called <span class="romanized">geresh muqdam</span>.
+    When the first syllable is the stressed syllable, it can be challenging to
+    mediate the competition for space between these two marks if they need to both
+    appear above a narrow letter like <span class="romanized">gimel</span>.
+    For example [<a href="#ref_15" id="callout_15" title="Psa. 129:2">15</a>]:</p>
+<table dir="rtl">
+    <tr>
+    <th>Taamey D</th>
+    <th>Taamey Frank</th>
+    <th><span class="small-caps">Sbl</span> Hebrew</th>
+    <th>Ezra <span class="small-caps">Sil</span></th>
+    </tr>
+    <tr>
+    <td class="font-family-taamey-d">גַּ֝֗ם</td>
+    <td class="font-family-taamey-frank-clm">גַּ֝֗ם</td>
+    <td class="font-family-sbl-hebrew">גַּ֝֗ם</td>
+    <td class="font-family-ezra-sil">גַּ֝֗ם</td>
+    </tr>
+</table>
+<h3>The <span class="romanized">lamed</span> ascender</h3>
+<p>The <span class="romanized">lamed</span> ascender creates a variety of challenges.
+    In the examples below, Ezra <span class="small-caps">Sil</span> struggles with the ascender.
+    The other fonts do okay, though one might say that <span class="small-caps">Sbl</span> Hebrew’s
+    <span class="romanized">gershayim</span> comes a little too close for comfort to the ascender.
+    (References are [<a href="#ref_16" id="callout_16" title="Dan. 11:24">16</a>], [<a href="#ref_17" id="callout_17" title="Psa. 87:4">17</a>], and [<a href="#ref_18" id="callout_18" title="Psa. 27:13">18</a>].)
+</p>
+<table dir="rtl">
+    <tr>
+    <th>Taamey D</th>
+    <th>Taamey Frank</th>
+    <th><span class="small-caps">Sbl</span> Hebrew</th>
+    <th>Ezra <span class="small-caps">Sil</span></th>
+    </tr>
+    <tr>
+    <td class="font-family-taamey-d">בְּשַׁלְוָ֞ה</td>
+    <td class="font-family-taamey-frank-clm">בְּשַׁלְוָ֞ה</td>
+    <td class="font-family-sbl-hebrew">בְּשַׁלְוָ֞ה</td>
+    <td class="font-family-ezra-sil">בְּשַׁלְוָ֞ה</td>
+    </tr>
+    <tr>
+    <td class="font-family-taamey-d">לְֽיֹ֫דְעָ֥י</td>
+    <td class="font-family-taamey-frank-clm">לְֽיֹ֫דְעָ֥י</td>
+    <td class="font-family-sbl-hebrew">לְֽיֹ֫דְעָ֥י</td>
+    <td class="font-family-ezra-sil">לְֽיֹ֫דְעָ֥י</td>
+    </tr>
+    <tr>
+    <td class="font-family-taamey-d">לׅׄוּלֵׅׄ֗אׅׄ</td>
+    <td class="font-family-taamey-frank-clm">לׅׄוּלֵׅׄ֗אׅׄ</td>
+    <td class="font-family-sbl-hebrew">לׅׄוּלֵׅׄ֗אׅׄ</td>
+    <td class="font-family-ezra-sil">לׅׄוּלֵׅׄ֗אׅׄ</td>
+    </tr>
+</table>
+<p>Sometimes the ascender causes a problem indirectly rather than directly.
+    In the word [<a href="#ref_19" id="callout_19" title="Isa. 44:8">19</a>] shown below, in <span class="small-caps">Sbl</span> Hebrew &amp; Ezra <span class="small-caps">Sil</span>, the ascender has caused the <span class="romanized">pashta</span>
+    to be placed far to the left, which may be fine for true (postpositive) <span class="romanized">pashta</span>
+    but can cause problems for stress-helper <span class="romanized">pashta</span>.
+    In this case, a stress-helper <span class="romanized">pashta</span> collides with a <span class="romanized">ḥolam male</span> dot.
+    Taamey Frank’s stress-helper <span class="romanized">pashta</span> does not collide with the <span class="romanized">ḥolam male</span> dot,
+    but it collides directly with the ascender.
+</p>
+<table dir="rtl">
+    <tr>
+    <th>Taamey D</th>
+    <th>Taamey Frank</th>
+    <th><span class="small-caps">Sbl</span> Hebrew</th>
+    <th>Ezra <span class="small-caps">Sil</span></th>
+    </tr>
+    <tr>
+    <td class="font-family-taamey-d">אֱל֙וֹהַּ֙</td>
+    <td class="font-family-taamey-frank-clm">אֱל֙וֹהַּ֙</td>
+    <td class="font-family-sbl-hebrew">אֱל֙וֹהַּ֙</td>
+    <td class="font-family-ezra-sil">אֱל֙וֹהַּ֙</td>
+    </tr>
+</table>
+<p>
+    Taamey&nbsp;D avoids the problem
+    by placing stress-helper <span class="romanized">pashta</span> roughly in the center of the <span class="romanized">lamed</span>,
+    behind the ascender.
+    This also makes ownership of the stress-helper <span class="romanized">pashta</span> clearer.
+    Note that stress-helper <span class="romanized">pashta</span> is common in <span class="small-caps">uxlc</span>,
+    unlike other stress helpers, which are rare in <span class="small-caps">uxlc</span>.
+    (Aside: unlike the other three fonts, Taamey Frank does not
+    place furtive <span class="romanized">pataḥ</span> “early.”)
+</p>
+<h3>The <span class="romanized">deḥi</span> accent</h3>
+<p>The <span class="romanized">sifrei emet</span> accent <span class="romanized">deḥi</span> can be challenging,
+    particularly since it can appear
+    on the same consonant as some other below-marks, most often with <span class="romanized">meteg</span>
+    but with others such as <span class="romanized">munaḥ</span>, too.
+    Taamey Frank &amp; <span class="small-caps">Sbl</span> Hebrew seem to be trying to place
+    <span class="romanized">deḥi</span> up against the vowel rather than leaving it in a prepositive position.
+    This placement is not only a departure from tradition,
+    but also harder to implement!
+    Below are two words with <span class="romanized">deḥi</span>, shown in Taamey&nbsp;D,
+    followed by their pointed first letters shown in our standard 4 fonts of interest.
+</p>
+<p class="wide-word-spacing">
+<span class="normal-word-spacing"><span class="font-family-taamey-d"><span class="attention">לֵֽ֭</span>אלֹהִים</span> [<a href="#ref_20" id="callout_20" title="Psa. 42:6">20</a>]</span> <span class="normal-word-spacing"><span class="font-family-taamey-d"><span class="attention">שֶׁ֣֭</span>עֹמְדִים</span> [<a href="#ref_21" id="callout_21" title="Psa. 135:2">21</a>]</span>
+</p>
+
+<table dir="rtl">
+    <tr>
+    <th>Taamey D</th>
+    <th>Taamey Frank</th>
+    <th><span class="small-caps">Sbl</span> Hebrew</th>
+    <th>Ezra <span class="small-caps">Sil</span></th>
+    </tr>
+    <tr>
+    <td class="font-family-taamey-d">לֵֽ֭ שֶׁ֣֭</td>
+    <td class="font-family-taamey-frank-clm">לֵֽ֭ שֶׁ֣֭</td>
+    <td class="font-family-sbl-hebrew">לֵֽ֭ שֶׁ֣֭</td>
+    <td class="font-family-ezra-sil">לֵֽ֭ שֶׁ֣֭</td>
+    </tr>
+</table>
+<h3>The <span class="romanized">ayin</span> descender</h3>
+<p>In the word [<a href="#ref_22" id="callout_22" title="Psa. 107:12">22</a>] below,
+    you can see how, in <span class="small-caps">Sbl</span> Hebrew, an <span class="romanized">ayin</span> with a descender,
+    if followed by an overburdened narrow letter (here <span class="romanized">zayin</span>), can result in a collision.
+    <!-- italic-close-paren (... <span class="romanized">zayin</span>) -->
+    To avoid the collision, the font might use a larger advance on the <span class="romanized">ayin</span>
+    in such contexts. Or it might include such contexts in the conditions under which
+    descender-free <span class="romanized">ayin</span> is used.
+</p>
+<table dir="rtl">
+    <tr>
+    <th>Taamey D</th>
+    <th>Taamey Frank</th>
+    <th><span class="small-caps">Sbl</span> Hebrew</th>
+    <th>Ezra <span class="small-caps">Sil</span></th>
+    </tr>
+    <tr>
+    <td class="font-family-taamey-d">עֹזֵֽר</td>
+    <td class="font-family-taamey-frank-clm">עֹזֵֽר</td>
+    <td class="font-family-sbl-hebrew">עֹזֵֽר</td>
+    <td class="font-family-ezra-sil">עֹזֵֽר</td>
+    </tr>
+</table>
+<p>
+    Fonts are software, and as with all software, every feature added creates opportunities for new bugs to creep in.
+    In the word [<a href="#ref_23" id="callout_23" title="Psa. 88:16">23</a>] below,
+    we can see that <span class="small-caps">Sbl</span> Hebrew neglected to “tell” the descender-free <span class="romanized">ayin</span> glyph how
+    to place <span class="unicode-code-point-name">u-zarqa</span>, and as a result it appears as a postpositive on descender-free <span class="romanized">ayin</span>.
+    Taamey Frank, though it has only one “flavor” of <span class="romanized">ayin</span>, inherited the vestiges of this
+    feature from <span class="small-caps">Sbl</span> Hebrew, one of the vestiges being this bug.
+</p>
+<table dir="rtl">
+    <tr>
+    <th>Taamey D</th>
+    <th>Taamey Frank</th>
+    <th><span class="small-caps">Sbl</span> Hebrew</th>
+    <th>Ezra <span class="small-caps">Sil</span></th>
+    </tr>
+    <tr>
+    <td class="font-family-taamey-d">עָ֘נִ֤י</td>
+    <td class="font-family-taamey-frank-clm">עָ֘נִ֤י</td>
+    <td class="font-family-sbl-hebrew">עָ֘נִ֤י</td>
+    <td class="font-family-ezra-sil">עָ֘נִ֤י</td>
+    </tr>
+</table>
+<p>
+    (The different <span class="romanized">zarqa</span> shape in Ezra <span class="small-caps">Sil</span> is discussed in the next section.
+    Also, the next section has more information on the confusingly-named <span class="unicode-code-point-name">u-zarqa</span> code point.)
+</p>
+<h3>Stress-helper <span class="romanized">zarqa</span></h3>
+<p>The <span class="unicode-code-point-name">u-zinor</span> code point is used for true (postpositive) <span class="romanized">zarqa</span>
+and the <span class="romanized">sifrei emet</span> accent <span class="romanized">tsinor</span>.
+    It is slightly odd that this code point is named after
+    its <span class="romanized">sifrei emet</span> name.
+    (E.g., Unicode uses <span class="unicode-code-point-name">u-tipeha</span> not <span class="unicode-code-point-name">u-tarha</span>.)
+    It is also slightly odd that it is not spelled <span class="unicode-code-point-name">u-tsinor</span>.
+    (E.g.,  Unicode uses <span class="unicode-code-point-name">u-tsadi</span> &amp; <span class="unicode-code-point-name">u-tsere</span>.)
+    So, the name “<span class="unicode-code-point-name">u-zinor</span>” is slightly odd in a couple of ways,
+    but no big deal.
+</p>
+<p>
+    The big deal is that there is a code point named <span class="unicode-code-point-name">u-zarqa</span>
+    that is not used
+    (and should not be used)
+    for true <span class="romanized">zarqa</span>.
+    Its name is widely agreed to be an error.
+    But due to the nature of Unicode, its name
+    will not be fixed.
+    The <span class="unicode-code-point-name">u-zarqa</span> code point is used for the <span class="romanized">sifrei emet</span> accent <span class="romanized">tsinnorit</span>,
+    and it can be used for stress-helper <span class="romanized">zarqa</span>.
+    <span class="small-caps">Mam</span> &amp; <span class="small-caps">uxlc</span> use <span class="unicode-code-point-name">u-zarqa</span> for stress-helper <span class="romanized">zarqa</span>.
+    (<span class="small-caps">uxlc</span> has only two such uses.)
+    <!-- Those two places are 2Chr 19:2 (חֲנָ֘נִי֮) &amp; 2Sam 3:8 (אָנֹ֘כִי֮). -->
+    As a mnemonic, I think of <span class="unicode-code-point-name">u-zarqa</span> as an accidentally truncated version of <span class="unicode-code-point-name">u-zarqa stress helper</span>.
+</p>
+<p>
+Although <span class="small-caps">mam</span> &amp; <span class="small-caps">uxlc</span> use <span class="unicode-code-point-name">u-zarqa</span> for stress-helper <span class="romanized">zarqa</span>,
+I think it would be better to use <span class="unicode-code-point-name">u-zinor</span>.
+That would be analogous to what is done for other accents with
+stress helpers:
+they use the same code point for both the stress helper
+&amp; the true accent.
+Although no word in its corpus uses <span class="unicode-code-point-name">u-zinor</span> for stress-helper <span class="romanized">zarqa</span>,
+Taamey&nbsp;D supports this.
+This support is an exception to Taamey&nbsp;D’s usual policy of unconcern for words outside its corpus.
+</p>
+<p>
+Using <span class="unicode-code-point-name">u-zarqa</span> for stress-helper <span class="romanized">zarqa</span>
+is like using <span class="unicode-code-point-name">u-qadma</span> for stress-helper <span class="unicode-code-point-name">u-pashta</span>,
+which is not done (nor should it be done) by <span class="small-caps">mam</span> or <span class="small-caps">uxlc</span>.
+    (There is one word in the corpus that has both <span class="romanized">qadma</span> &amp; <span class="romanized">pashta</span> though!
+    This is a dually-cantillated word in the Decalogues.
+    See the section
+    “<a href="#h3_qupo_words"><span class="small-caps">Qupo</span> words</a>” for information on dual cantillation.)
+</p>
+<p>
+    In the word [<a href="#ref_24" id="callout_24" title="2Sam. 3:8">24</a>] below,
+    we can see some of the challenges associated with stress-helper <span class="romanized">zarqa</span>.
+    For each font, I show the standard <span class="unicode-code-point-name">u-zarqa</span>/<span class="unicode-code-point-name">u-zinor</span> (“zazi”)
+    encoding, and then the <span class="unicode-code-point-name">u-zinor</span>/<span class="unicode-code-point-name">u-zinor</span> (“zizi”) encoding,
+    which I prefer.
+</p>
+<table dir="rtl">
+    <tr>
+    <th>Taamey D</th>
+    <th>Taamey Frank</th>
+    <th><span class="small-caps">Sbl</span> Hebrew</th>
+    <th>Ezra <span class="small-caps">Sil</span></th>
+    </tr>
+    <tr>
+    <td class="font-family-taamey-d">אָנֹ֘כִי֮</td>
+    <td class="font-family-taamey-frank-clm">אָנֹ֘כִי֮</td>
+    <td class="font-family-sbl-hebrew">אָנֹ֘כִי֮</td>
+    <td class="font-family-ezra-sil">אָנֹ֘כִי֮</td>
+    </tr>
+    <tr>
+    <td class="font-family-taamey-d">אָנֹ֮כִי֮</td>
+    <td class="font-family-taamey-frank-clm">אָנֹ֮כִי֮</td>
+    <td class="font-family-sbl-hebrew">אָנֹ֮כִי֮</td>
+    <td class="font-family-ezra-sil">אָנֹ֮כִי֮</td>
+    </tr>
+</table>
+<p>
+    Taamey Frank &amp; <span class="small-caps">Sbl</span> Hebrew handle these two encodings differently.
+    For these two fonts, the “zizi” encoding causes the accent to be raised up above the <span class="romanized">ḥolam ḥaser</span> dot,
+    a somewhat radical way of mediating the competition for space between those marks.
+    Though somewhat radical, one might prefer it to the crowding seen in these two fonts
+    when the “zazi” encoding is used.
+    And even this crowding still requires a someway right-biased (“early”) placement for the <span class="unicode-code-point-name">u-zarqa</span> glyph.
+    Taamey&nbsp;D’s glyphs for <span class="unicode-code-point-name">u-zarqa</span> &amp; <span class="unicode-code-point-name">u-zinor</span> are a little narrower than those of Taamey Frank &amp; <span class="small-caps">Sbl</span> Hebrew.
+    This narrower shape, combined with a left-biased (“late”) placement of the <span class="romanized">ḥolam ḥaser</span> dot, makes things come
+    out a little better on a narrow letter like <span class="romanized">nun</span>, in my opinion.
+</p>
+<p>
+    Note that Ezra <span class="small-caps">Sil</span> uses a different shape than the other fonts for <span class="unicode-code-point-name">u-zarqa</span> &amp; <span class="unicode-code-point-name">u-zinor</span>.
+    Ezra <span class="small-caps">Sil</span> mimics the font used in the influential <span class="small-caps">bhs</span> edition of the <span class="small-caps">lc</span>.
+    <span class="small-caps">Bhs</span>, in turn, mimics the shape used in the <span class="small-caps">lc</span> for <span class="romanized">zarqa</span>, <span class="romanized">tsinor</span>, and <span class="romanized">tsinnorit</span>.
+</p>
+<h3 id="h3_orphan_sheva">Orphan <span class="romanized">sheva</span> in <span class="romanized">yerushalayemah</span></h3>
+<p>In words for Jerusalem,
+the marks on or near the <span class="romanized">lamed</span>
+should conform to the following pattern:</p>
+<ul>
+    <li>Either <span class="romanized">pataḥ</span> or <span class="romanized">qamats</span> should appear under the <span class="romanized">lamed</span>.</li>
+    <li>Optionally, an accent can appear either above or below the <span class="romanized">lamed</span>.</li>
+    <li>An “orphan” vowel, <span class="romanized">ḥiriq</span> or <span class="romanized">sheva</span>,
+        should appear in or near the space between the <span class="romanized">lamed</span> &amp; the next letter.
+        (The next letter is always a <span class="romanized">mem</span> of some kind.)
+    </li>
+</ul>
+<p>
+    I call the vowel an orphan
+    because its “parent” consonant, a <span class="romanized">yod</span>, is only implicitly present,
+    because each of these words for Jerusalem is a perpetual <span class="romanized">qere</span>.
+    If the orphan vowel is <span class="romanized">ḥiriq</span>, the word then ends with a final <span class="romanized">mem</span>.
+    If the orphan vowel is <span class="romanized">sheva</span> (rare), the word then ends with a <span class="romanized">mem</span> and a <span class="romanized">he</span>,
+    with a <span class="romanized">qamats</span> under the <span class="romanized">mem</span>.
+    All 4 of our standard fonts place the orphan <span class="romanized">ḥiriq</span> far away from the true vowel under the <span class="romanized">lamed</span>.
+    (The true vowel under the <span class="romanized">lamed</span> is <span class="romanized">pataḥ</span> or <span class="romanized">qamats</span>.)
+    In fact, with default letter spacing,
+    all 4 of our standard fonts
+    place the orphan <span class="romanized">ḥiriq</span> far enough the left
+    to be under the final <span class="romanized">mem</span>.
+    Below,
+    I show the pointed <span class="romanized">lamed</span> &amp; final <span class="romanized">mem</span> of a Jerusalem word
+    [<a href="#ref_25" id="callout_25" title="Isa. 33:20">25</a>]
+    with a <span class="romanized">geresh</span> accent.
+    I show these letters with default letter spacing and then with wide letter spacing below.
+    The wide letter spacing shows that even though in default letter spacing,
+    the orphan <span class="romanized">ḥiriq</span> may appear to “belong” to the final mem,
+    in fact it “belongs” to the <span class="romanized">lamed</span>.
+</p>
+<table dir="rtl">
+    <tr>
+    <th>Taamey D</th>
+    <th>Taamey Frank</th>
+    <th><span class="small-caps">Sbl</span> Hebrew</th>
+    <th>Ezra <span class="small-caps">Sil</span></th>
+    </tr>
+    <tr>
+    <td class="font-family-taamey-d">לִַ֜ם</td>
+    <td class="font-family-taamey-frank-clm">לִַ֜ם</td>
+    <td class="font-family-sbl-hebrew">לִַ֜ם</td>
+    <td class="font-family-ezra-sil">לִַ֜ם</td>
+    </tr>
+    <tr class="wide-letter-spacing">
+    <td class="font-family-taamey-d">לִַ֜ם</td>
+    <td class="font-family-taamey-frank-clm">לִַ֜ם</td>
+    <td class="font-family-sbl-hebrew">לִַ֜ם</td>
+    <td class="font-family-ezra-sil">לִַ֜ם</td>
+    </tr>
+</table>
+<p>While all 4 fonts place orphan <span class="romanized">ḥiriq</span> similarly,
+    only Taamey&nbsp;D uses a position for the rare orphan <span class="romanized">sheva</span>
+    that is analogous to orphan <span class="romanized">ḥiriq</span>.
+    This can be seen in the word [<a href="#ref_26" id="callout_26" title="Eze. 8:3">26</a>] below (only the suffix is shown):
+</p>
+<table dir="rtl">
+    <tr>
+    <th>Taamey D</th>
+    <th>Taamey Frank</th>
+    <th><span class="small-caps">Sbl</span> Hebrew</th>
+    <th>Ezra <span class="small-caps">Sil</span></th>
+    </tr>
+    <tr>
+    <td class="font-family-taamey-d">לְַ֜מָה</td>
+    <td class="font-family-taamey-frank-clm">לְַ֜מָה</td>
+    <td class="font-family-sbl-hebrew">לְַ֜מָה</td>
+    <td class="font-family-ezra-sil">לְַ֜מָה</td>
+    </tr>
+</table>
+<p>
+    The way the other 3 fonts place orphan <span class="romanized">sheva</span> is not wrong,
+    but it is not analogous to the way they place orphan <span class="romanized">ḥiriq</span>.
+    Note that if the orphan <span class="romanized">sheva</span> is placed too far away from the true vowel under the <span class="romanized">lamed</span>,
+    the orphan <span class="romanized">sheva</span> may start to look like the <span class="romanized">sheva</span>-like part of a <span class="romanized">ḥataf qamats</span> under the (non-final) <span class="romanized">mem</span>.
+    <!-- italic-dash <span class="romanized">sheva</span>- -->
+    I think Taamey&nbsp;D strikes a good balance between these competing goals for the orphan <span class="romanized">sheva</span> placement:
+    notably far away from the true vowel under the <span class="romanized">lamed</span>, but also not too close to the <span class="romanized">qamats</span> under the (non-final) <span class="romanized">mem</span>.
+</p>
+<p>Above, the examples of orphan <span class="romanized">sheva</span> with <span class="romanized">geresh</span> were encoded in what I call <span class="small-caps">laeo</span> form:
+    <span class="romanized">lamed</span>, “ah” vowel, <span class="romanized">sheva</span>, over-accent (above-accent).
+    This is how <span class="small-caps">uxlc</span> encodes such words.
+    The encoding <span class="small-caps">mam</span> uses is <span class="small-caps">lao-e</span>:
+    <span class="romanized">lamed</span>, “ah” vowel, over-accent, <span class="unicode-code-point-name">u-cgj</span>, <span class="romanized">sheva</span>.
+    Some fonts do not handle this <span class="small-caps">lao-e</span> encoding well,
+    as can be seen when we use it on the same suffix as above:
+</p>
+<table dir="rtl">
+    <tr>
+    <th>Taamey D</th>
+    <th>Taamey Frank</th>
+    <th><span class="small-caps">Sbl</span> Hebrew</th>
+    <th>Ezra <span class="small-caps">Sil</span></th>
+    </tr>
+    <tr>
+    <td class="font-family-taamey-d">לַ֜͏ְמָה</td>
+    <td class="font-family-taamey-frank-clm">לַ֜͏ְמָה</td>
+    <td class="font-family-sbl-hebrew">לַ֜͏ְמָה</td>
+    <td class="font-family-ezra-sil">לַ֜͏ְמָה</td>
+    </tr>
+</table>
+<p>
+    Note that, possibly by accident, with <span class="small-caps">lao-e</span>, Taamey Frank looks almost the same as Taamey&nbsp;D.
+    (Taamey Frank puts any marks after <span class="unicode-code-point-name">u-cgj</span> at the left edge of the base letter,
+    which is the default (zero) position for marks. In this case <span class="romanized">lamed</span> is the base letter.)
+    The fonts that struggle with <span class="small-caps">lao-e</span> do not struggle with its <span class="romanized">ḥiriq</span> version, <span class="small-caps">lao-i</span>.
+</p>
+<p>
+    I wonder whether many of the challenges of orphan vowels might have been alleviated
+    by having a <span class="unicode-code-point-name">u-implicit yod</span> code point in Unicode. Then these orphan
+    vowels would only be orphans in a visual sense. In terms of their encoding, these
+    vowels would have <span class="unicode-code-point-name">u-implicit yod</span> as their “parent” letter.
+    <span class="unicode-code-point-name">u-implicit yod</span> would typically render as not only invisible but also
+    taking up no space.
+</p>
+<h3 id="h3_qupo_words"><span class="small-caps">Qupo</span> words</h3>
+<p>
+There are 3 sections of the Hebrew Bible that have two systems of cantillation:
+</p>
+<ul>
+<li>Gen. 35:22 (in the Saga of Reuben)</li>
+<li>Exo. 20:2–13<sup>M</sup>17<sup>U</sup> (the Exodus Decalogue)</li>
+<li>Deut. 5:6–17<sup>M</sup>21<sup>U</sup> (the Deuteronomy Decalogue)</li>
+</ul>
+<p>
+
+(Unfortunately, <span class="small-caps">mam</span> and <span class="small-caps">uxlc</span> have different verse numbering
+in the Decalogues.
+Although they agree on the number of the first verse,
+the number of the last verse is 4 higher in <span class="small-caps">uxlc</span>.
+Above and elsewere, we use the notation
+a<sup>M</sup>b<sup>U</sup>
+to mean “verse a in <span class="small-caps">mam</span> and verse b in <span class="small-caps">uxlc</span>.”)
+</p>
+<p>
+
+    In Taamey&nbsp;D’s corpus, these sections notate both systems of cantillation
+    on the same set of letters.
+    As a result, these sections of the Hebrew Bible are
+    the sections most densely packed with typographic challenges.
+    Within these challenging sections, perhaps the most challenging words are
+    the two <span class="small-caps">qupo</span> words,
+    <span class="romanized">panay</span> [<a href="#ref_27" id="callout_27" title="Exo. 20:2ᴹ20:3ᵁ">27</a>/<a href="#ref_28" id="callout_28" title="Deut. 5:6ᴹ5:7ᵁ">28</a>] &amp;
+    <span class="romanized">mitaḥat</span> [<a href="#ref_29" id="callout_29" title="Exo. 20:3ᴹ20:4ᵁ">29</a>/<a href="#ref_30" id="callout_30" title="Deut. 5:7ᴹ5:8ᵁ">30</a>]
+    These words contain letters that bear a burden of
+    not only two accents but also two vowels!
+    <span class="small-caps">Qupo</span> is acronym I use to describe these 4 marks:
+
+</p>
+<ul>
+<li><span class="romanized">qamats</span></li>
+<li>under-accent (<span class="romanized">siluq</span> or <span class="romanized">etnaḥta</span>) (<span class="unicode-code-point-name">u-meteg</span> used for <span class="romanized">siluq</span>)</li>
+<li><span class="romanized">pataḥ</span></li>
+<li>over-accent (<span class="romanized">revia</span> or <span class="romanized">geresh</span>)</li>
+</ul>
+<p>
+Below are <span class="romanized">panay</span> &amp; <span class="romanized">mitaḥat</span> in our standard 4 fonts.
+</p>
+<table dir="rtl">
+    <tr>
+    <th>Taamey D</th>
+    <th>Taamey Frank</th>
+    <th><span class="small-caps">Sbl</span> Hebrew</th>
+    <th>Ezra <span class="small-caps">Sil</span></th>
+    </tr>
+    <tr>
+    <td class="font-family-taamey-d">פָּ<span class="attention">נָֽ͏ַ֗</span>י׃</td>
+    <td class="font-family-taamey-frank-clm">פָּ<span class="attention">נָֽ͏ַ֗</span>י׃</td>
+    <td class="font-family-sbl-hebrew">פָּ<span class="attention">נָֽ͏ַ֗</span>י׃</td>
+    <td class="font-family-ezra-sil">פָּ<span class="attention">נָֽ͏ַ֗</span>י׃</td>
+    </tr>
+    <tr>
+    <td class="font-family-taamey-d">מִ<span class="attention">תָּ֑͏ַ֜</span>חַת</td>
+    <td class="font-family-taamey-frank-clm">מִ<span class="attention">תָּ֑͏ַ֜</span>חַת</td>
+    <td class="font-family-sbl-hebrew">מִ<span class="attention">תָּ֑͏ַ֜</span>חַת</td>
+    <td class="font-family-ezra-sil">מִ<span class="attention">תָּ֑͏ַ֜</span>חַת</td>
+    </tr>
+</table><p>
+It is perhaps not coincidental that <span class="small-caps">Sbl</span> Hebrew struggles with <span class="romanized">panay</span> since until recently, an error in <span class="small-caps">wlc</span> made this word far less challenging. In other words, I suspect <span class="romanized">panay</span> as shown above was not part of <span class="small-caps">Sbl</span> Hebrew’s corpus of concern.
+</p>
+<p>
+The <span class="small-caps">qupo</span> words vary in appearance when rendered in Ezra <span class="small-caps">Sil</span>, depending on what software is used. In some software, the words look great. In other software, the below-marks still look great, but the above-accent is “late” (too far to the left).
+</p>
+<p>
+The <span class="small-caps">qupo</span> words above are shown as they appear in <span class="small-caps">mam</span>,
+    which uses <span class="small-caps">qu-po</span> encoding, where the dash indicates a <span class="unicode-code-point-name">u-cgj</span>.
+    Some fonts fare better with different encodings, but I think <span class="small-caps">qu-po</span>
+    is the best font-neutral encoding.
+</p>
+
+<h3 id="h3_other_dualcant">Other dually-cantillated words</h3>
+<p>
+    Normally, dually-cantillated words mixing an above-accent &amp; a below-accent
+    pose no great challenge since the two accents do not compete for space.
+    But such above/below pairs can thwart other functions of the font.
+    In the example [<a href="#ref_31" id="callout_31" title="Exo. 20:12ᴹ20:15ᵁ">31</a>/<a href="#ref_32" id="callout_32" title="Deut. 5:16ᴹ5:19ᵁ">32</a>] below, the logic to avoid collision between
+    <span class="romanized">ḥolam ḥaser</span> &amp; <span class="romanized">zaqef qatan</span> seems to have been thwarted,
+    in Taamey Frank &amp; <span class="small-caps">Sbl</span> Hebrew.
+</p>
+<table dir="rtl">
+    <tr>
+    <th>Taamey D</th>
+    <th>Taamey Frank</th>
+    <th><span class="small-caps">Sbl</span> Hebrew</th>
+    <th>Ezra <span class="small-caps">Sil</span></th>
+    </tr>
+    <tr>
+    <td class="font-family-taamey-d">תִּֿגְנֹֽ֔ב</td>
+    <td class="font-family-taamey-frank-clm">תִּֿגְנֹֽ֔ב</td>
+    <td class="font-family-sbl-hebrew">תִּֿגְנֹֽ֔ב</td>
+    <td class="font-family-ezra-sil">תִּֿגְנֹֽ֔ב</td>
+    </tr>
+</table>
+<p>
+    (As an aside, note that not only is <span class="romanized">rafeh</span> present here, a rarity in Taamey&nbsp;D’s corpus,
+    but also it is present with <span class="romanized">dagesh</span>. This doubly-extraordinary notation
+    indicates that in one cantillation, <span class="romanized">dagesh</span> is present, but not in the other.
+    This shows that cantillation, though primarily concerned with accents,
+    can influence whether <span class="romanized">dagesh</span> is used, and, as we saw with the <span class="small-caps">qupo</span>
+    words, can influence whether <span class="romanized">pataḥ</span> or <span class="romanized">qamats</span> is used.)
+</p>
+<p>
+    Narrow letters like <span class="romanized">yod</span> &amp; <span class="romanized">vav</span> are easily overburdened with below-marks,
+    and, depending on context, may need some extra space before or after them.
+    This is particularly true in the following example [<a href="#ref_33" id="callout_33" title="Exo. 20:4ᴹ20:5ᵁ">33</a>/<a href="#ref_34" id="callout_34" title="Deut. 5:8ᴹ5:9ᵁ">34</a>]
+    from the Decalogues:
+</p>
+<table dir="rtl">
+    <tr>
+    <th>Taamey D</th>
+    <th>Taamey Frank</th>
+    <th><span class="small-caps">Sbl</span> Hebrew</th>
+    <th>Ezra <span class="small-caps">Sil</span></th>
+    </tr>
+    <tr>
+    <td class="font-family-taamey-d">תִשְׁתַּחֲוֶ֥֣ה</td>
+    <td class="font-family-taamey-frank-clm">...חֲוֶ֥֣ה</td>
+    <td class="font-family-sbl-hebrew">...חֲוֶ֥֣ה</td>
+    <td class="font-family-ezra-sil">...חֲוֶ֥֣ה</td>
+    </tr>
+</table>
+<h3 id="h3_overburdened">Overburdened letters</h3>
+<p>
+    Above I showed a greatly-overburdened letter, <span class="romanized">vav</span>, with 3 below-marks due to dual cantillation.
+    But similar, albeit less extreme situations occur frequently even with the standard burden
+    of a vowel &amp; a below-accent:
+</p>
+<table dir="rtl">
+    <tr>
+    <th>Taamey D</th>
+    <th>Taamey Frank</th>
+    <th><span class="small-caps">Sbl</span> Hebrew</th>
+    <th>Ezra <span class="small-caps">Sil</span></th>
+    </tr>
+    <tr>
+    <td class="font-family-taamey-d">הֶעֱוָ֣ה</td>
+    <td class="font-family-taamey-frank-clm">הֶעֱוָ֣ה</td>
+    <td class="font-family-sbl-hebrew">הֶעֱוָ֣ה</td>
+    <td class="font-family-ezra-sil">הֶעֱוָ֣ה</td>
+    </tr>
+    <tr>
+    <td class="font-family-taamey-d">אֲזֵנֶ֑ךָ</td>
+    <td class="font-family-taamey-frank-clm">אֲזֵנֶ֑ךָ</td>
+    <td class="font-family-sbl-hebrew">אֲזֵנֶ֑ךָ</td>
+    <td class="font-family-ezra-sil">אֲזֵנֶ֑ךָ</td>
+    </tr>
+    <tr>
+    <td class="font-family-taamey-d">יָוָ֑ן</td>
+    <td class="font-family-taamey-frank-clm">יָוָ֑ן</td>
+    <td class="font-family-sbl-hebrew">יָוָ֑ן</td>
+    <td class="font-family-ezra-sil">יָוָ֑ן</td>
+    </tr>
+</table>
+<p>(References are [<a href="#ref_35" id="callout_35" title="2Sam. 19:20">35</a>], [<a href="#ref_36" id="callout_36" title="Deut. 23:14">36</a>], and [<a href="#ref_37" id="callout_37" title="Isa. 66:19">37</a>].)
+    Multiple below-marks are the most common cause of overburdened letters,
+    but descenders can cause issues as well in some fonts.
+    Below, Ezra <span class="small-caps">Sil</span> struggles a little, even with as wide a letter as <span class="romanized">kaf</span>.
+    (References are [<a href="#ref_38" id="callout_38" title="Gen. 32:33">38</a>] &amp; [<a href="#ref_39" id="callout_39" title="Exo. 27:20">39</a>].)
+</p>
+<table dir="rtl">
+    <tr>
+    <th>Taamey D</th>
+    <th>Taamey Frank</th>
+    <th><span class="small-caps">Sbl</span> Hebrew</th>
+    <th>Ezra <span class="small-caps">Sil</span></th>
+    </tr>
+    <tr>
+    <td class="font-family-taamey-d">כַּ֣ף</td>
+    <td class="font-family-taamey-frank-clm">כַּ֣ף</td>
+    <td class="font-family-sbl-hebrew">כַּ֣ף</td>
+    <td class="font-family-ezra-sil">כַּ֣ף</td>
+    </tr>
+    <tr>
+    <td class="font-family-taamey-d">זָ֛ךְ</td>
+    <td class="font-family-taamey-frank-clm">זָ֛ךְ</td>
+    <td class="font-family-sbl-hebrew">זָ֛ךְ</td>
+    <td class="font-family-ezra-sil">זָ֛ךְ</td>
+    </tr>
+</table>
+<h2 id="h2_alef_xolam">The <span class="romanized">alef ḥolam</span> vowel</h2>
+<p>The following words have a <span class="romanized">ḥolam ḥaser</span> dot on a
+letter preceding a syllable starting with <span class="hair-space-after"><span class="romanized">alef</span></span>:
+</p>
+<table dir="rtl">
+    <tr>
+    <th><span class="romanized">yavo·u</span> [<a href="#ref_40" id="callout_40" title="Gen. 6:4">40</a>]</th>
+    <th><span class="romanized">bevo·o</span> [<a href="#ref_41" id="callout_41" title="Eze. 26:10">41</a>]</th>
+    <th><span class="romanized">lero·ey</span> [<a href="#ref_42" id="callout_42" title="Koh. 7:11">42</a>]</th>
+    <th><span class="romanized">umlo·ah</span> [<a href="#ref_43" id="callout_43" title="Psa. 89:12">43</a>]</th>
+    </tr>
+    <tr class="font-family-taamey-d">
+    <td class="">יָבֹ֜<span class="attention">אוּ</span></td>
+    <td class="">בְּבֹ<span class="attention">אוֹ֙</span></td>
+    <td class="">לְרֹ<span class="attention">אֵ֥י</span></td>
+    <td class="">וּ֝מְלֹ<span class="attention">אָ֗הּ</span></td>
+    </tr>
+    <tr class="font-family-taamey-d">
+    <td class="wide-letter-spacing">בֹ֜<span class="attention">אוּ</span></td>
+    <td class="wide-letter-spacing">בֹ<span class="attention">אוֹ֙</span></td>
+    <td class="wide-letter-spacing">רֹ<span class="attention">אֵ֥י</span></td>
+    <td class="wide-letter-spacing">לֹ<span class="attention">אָ֗הּ</span></td>
+    </tr>
+</table><p>
+    (The syllable starting with <span class="romanized">alef</span> is highlighted.)
+    (Those syllables and their preceding letters are repeated with wide letter spacing,
+    to clarify the “ownership” of the <span class="romanized">ḥolam ḥaser</span> dot, particularly
+    when it is “owned” by a <span class="romanized">lamed</span>.)
+</p>
+<p>
+    The following words have a <span class="romanized">ḥolam male</span> dot on an <span class="romanized">alef</span> mater lectionis:
+</p>
+<table dir="rtl">
+    <tr>
+    <th><span class="romanized">roshekh</span> [<a href="#ref_44" id="callout_44" title="Song 7:6">44</a>]</th>
+    <th><span class="romanized">ribot</span> [<a href="#ref_45" id="callout_45" title="Ezra 2:69">45</a>]</th>
+    <th><span class="romanized">melot</span> [<a href="#ref_46" id="callout_46" title="Jer. 29:10">46</a>]</th>
+    </tr>
+    <tr class="font-family-taamey-d">
+    <td class=""><span class="attention">רֹא</span>שֵׁ֖ךְ</td>
+    <td class="">רִ<span class="attention">בֹּ֣אות</span></td>
+    <td class="">מְ<span class="attention">לֹ֧את</span></td>
+    </tr>
+    <tr class="font-family-taamey-d">
+    <td class="wide-letter-spacing"><span class="attention">רֹא</span></td>
+    <td class="wide-letter-spacing"><span class="attention">בֹּ֣אות</span></td>
+    <td class="wide-letter-spacing"><span class="attention">לֹ֧את</span></td>
+    </tr>
+</table><p>
+(The syllable whose vowel is <span class="romanized">alef</span> (or <span class="romanized">alef-vav</span>) is highlighted.)
+<!-- italic-close-paren (... <span class="romanized">alef-vav</span>) -->
+(Those syllables are repeated with wide letter spacing,
+to make it clear that the <span class="romanized">alef</span> “owns” the <span class="romanized">ḥolam male</span> dot.)
+</p>
+<p>
+    (Note that in the <span class="romanized">ribot</span> example above,
+    <span class="romanized">alef ḥolam</span> is followed by
+    a <span class="romanized">vav</span> that is neither a consonant nor an independent mater lectionis.
+    In such cases, the <span class="romanized">alef</span> &amp; the <span class="romanized">vav</span> form a sort of dual mater lectionis.
+    The <span class="romanized">ḥolam male</span> dot is still placed on the right of the <span class="romanized">alef</span>,
+    but it may be better to think of this dot
+    as belonging to the <span class="romanized">alef-vav</span> pair
+    rather than belonging to the <span class="romanized">alef</span> alone.)
+</p>
+<p>
+    How are these words encoded?
+    Unfortunately, in Unicode there is no accepted way
+    to encode the distinctions made above:
+    all of these words are encoded with <span class="unicode-code-point-name">u-holam</span>
+    before <span class="romanized">alef</span>, i.e.
+    all of these words are encoded with a <span class="unicode-code-point-name">u-holam</span>
+    “belonging” (in a Unicode sense) to the letter preceding the <span class="romanized">alef</span>.
+</p>
+<p>
+    So how do fonts like Taamey&nbsp;D show this distinction
+    if it is not encoded?
+    The answer is that, annoyingly, Taamey&nbsp;D &amp; fonts like it
+    must infer this distinction from context.
+</p>
+<p>
+    Fonts had to make such inferences for <span class="romanized">vav</span> until
+    the <span class="unicode-code-point-name">u-holam haser for vav</span> code point was added to Unicode in version 5.0
+    (in 2006).
+    Unfortunately, no analogous addition was made to Unicode for <span class="romanized">alef</span>.
+    But perhaps no additional code point is (or was) needed.
+    What if
+    we just started interpreting <span class="unicode-code-point-name">u-holam haser for vav</span> as if it applied to <span class="romanized">alef</span> as well?
+    Then there would be no need for inference trickery on <span class="unicode-code-point-name">u-holam</span> when it appears before <span class="romanized">alef</span>.
+</p>
+<p>
+    In cases where a text need only be read in one font, and that text &amp; its font
+    can be adapted to each other, such an idea is easy to implement.
+    But for texts like <span class="small-caps">mam</span> or <span class="small-caps">uxlc</span>,
+    which aim to be read in a variety of fonts, and for fonts like Taamey&nbsp;D,
+    which aim to serve the needs of those texts,
+    an idea like this is not easy to implement, or at least not easy to implement
+    any time soon.
+    So, Taamey&nbsp;D will not be able to ditch its <span class="romanized">alef ḥolam</span> inference trickery
+    any time soon.
+    Taamey&nbsp;D could use stylistic sets or character variants to
+    implement this idea as an option.
+    But it would still need to do inference trickery by default.
+</p>
+<h2 id="h2_notes_on_the_limited_corpus">Notes on the limited corpus</h2>
+<p>
+    Taamey&nbsp;D does not claim to be generally applicable.
+    It supports many words outside its corpus, but this support is accidental.
+    It often supports its specific corpus through general means,
+    leading to this “accidental generality.”
+    A concrete example is its support for
+    letters with more than one above-accent.
+    Excluding <span class="romanized">revia mugrash</span>,
+    such letters are rare in the Hebrew Bible
+    (in <span class="small-caps">mam</span> there are about 20).
+    Taamey&nbsp;D supports every such case in its corpus,
+    and, accidentally, supports many cases outside its corpus.
+    It supports those out-of-corpus cases because it was easier to
+    support multiple accents in a somewhat general way than
+    it would have been to add special-case support for only
+    the in-corpus cases.
+</p>
+<p>Since Taamey&nbsp;D is only accidentally general, it might not support words like the following:</p>
+<ul>
+    <li>Taamey&nbsp;D might not support words from editions of the Hebrew Bible that do not closely follow <span class="small-caps">uxlc</span> or <span class="small-caps">mam</span>.
+        For example, such words appear in <span class="small-caps">mam</span>’s documentation notes.
+        (I do not include <span class="small-caps">mam</span>’s documentation notes in Taamey&nbsp;D’s corpus.)</li>
+    <li>Taamey&nbsp;D might not support words with hypothetical cantillation.
+        For example, Jacobson’s book on cantillation often shows
+        different ways a verse might have been cantillated.
+        Such a verse might contain words that are not in any edition of the Hebrew Bible.</li>
+    <li>Taamey&nbsp;D might not support words from cantillated texts outside the Hebrew Bible.
+        For example, here is
+        <a href="https://opensiddur.org/readings-and-sourcetexts/mekorot/non-canonical/exoteric/second-temple-period/paean-of-ben-sira-on-the-merit-of-the-ancestors-chapters-44-50/">a recent cantillation of an excerpt from Ben Sira</a>.
+    </li>
+    <li>Taamey&nbsp;D might not support words from editions of the Hebrew Bible representing the Masorah parva.
+        Those would likely need Masorah circle &amp; combining dot above.
+        Taamey&nbsp;D has glyphs for these code points but their placement is untested.</li>
+</ul>
+<p>Texts pointed with only vowels &amp; <span class="romanized">meteg</span>
+    (i.e. texts without cantillation)
+    are unlikely to cause problems for Taamey&nbsp;D.
+    So, a <span class="romanized">siddur</span> is unlikely to cause problems for Taamey&nbsp;D.
+    A <span class="romanized">siddur</span> contains only a few small cantillated passages, and those passages are Biblical.
+    Those passages are unlikely to have any words outside Taamey&nbsp;D’s corpus.
+</p>
+<p>
+This document now concludes with the following:
+</p>
+<ul>
+<li>a section providing the book, chapter, and verse for each of this document’s numbered Biblical references</li>
+<li>an index of those Biblical references in order of their appearance in the Hebrew Bible</li>
+</ul>
+<h2 id="ref_list">Numbered Biblical references</h2><table>
+    <tr>
+    <th>N</th>
+    <th>book</th>
+    <th>c:v</th>
+    <th>section or subsection</th>
+    </tr><tr>
+    <td><a id="ref_1" href="#callout_1">1</a></td><td>Gen.</td><td>6:15</td><td>upside-down <span class="romanized">qamats qatan</span></td></tr><tr>
+    <td><a id="ref_2" href="#callout_2">2</a></td><td>Isa.</td><td>66:12</td><td><span class="romanized">ḥataf qamats qatan</span></td></tr><tr>
+    <td><a id="ref_3" href="#callout_3">3</a></td><td>Gen.</td><td>19:34</td><td>short <span class="romanized">meteg</span></td></tr><tr>
+    <td><a id="ref_4" href="#callout_4">4</a></td><td>Psa.</td><td>5:10</td><td><span class="romanized">atnaḥ hafukh</span> &amp; <span class="romanized">yeraḥ ben yomo</span></td></tr><tr>
+    <td><a id="ref_5" href="#callout_5">5</a></td><td>Psa.</td><td>35:10</td><td rowspan="2"><span class="romanized">qamats qatan</span> w/ <span class="romanized">mer.</span> or <span class="romanized">mun.</span></td></tr><tr>
+    <td><a id="ref_6" href="#callout_6">6</a></td><td>Eze.</td><td>44:13</td></tr><tr>
+    <td><a id="ref_7" href="#callout_7">7</a></td><td>2Kgs.</td><td>17:13</td><td rowspan="5"><span class="romanized">geresh</span>-<span class="small-caps">tg</span> &amp; <span class="romanized">gershayim</span>-<span class="small-caps">tg</span></td></tr><tr>
+    <td><a id="ref_8" href="#callout_8">8</a></td><td>Eze.</td><td>48:10</td></tr><tr>
+    <td><a id="ref_9" href="#callout_9">9</a></td><td>Gen.</td><td>5:29</td></tr><tr>
+    <td><a id="ref_10" href="#callout_10">10</a></td><td>Tsef.</td><td>2:15</td></tr><tr>
+    <td><a id="ref_11" href="#callout_11">11</a></td><td>Lev.</td><td>10:4</td></tr><tr>
+    <td><a id="ref_12" href="#callout_12">12</a></td><td>Eze.</td><td>27:16</td><td rowspan="3">competing <span class="romanized">ḥolam ḥaser</span></td></tr><tr>
+    <td><a id="ref_13" href="#callout_13">13</a></td><td>1Sam.</td><td>14:24</td></tr><tr>
+    <td><a id="ref_14" href="#callout_14">14</a></td><td>2Chr.</td><td>14:7</td></tr><tr>
+    <td><a id="ref_15" href="#callout_15">15</a></td><td>Psa.</td><td>129:2</td><td><span class="romanized">revia mugrash</span></td></tr><tr>
+    <td><a id="ref_16" href="#callout_16">16</a></td><td>Dan.</td><td>11:24</td><td rowspan="4"><span class="romanized">lamed</span> ascender</td></tr><tr>
+    <td><a id="ref_17" href="#callout_17">17</a></td><td>Psa.</td><td>87:4</td></tr><tr>
+    <td><a id="ref_18" href="#callout_18">18</a></td><td>Psa.</td><td>27:13</td></tr><tr>
+    <td><a id="ref_19" href="#callout_19">19</a></td><td>Isa.</td><td>44:8</td></tr><tr>
+    <td><a id="ref_20" href="#callout_20">20</a></td><td>Psa.</td><td>42:6</td><td rowspan="2"><span class="romanized">deḥi</span></td></tr><tr>
+    <td><a id="ref_21" href="#callout_21">21</a></td><td>Psa.</td><td>135:2</td></tr><tr>
+    <td><a id="ref_22" href="#callout_22">22</a></td><td>Psa.</td><td>107:12</td><td rowspan="2"><span class="romanized">ayin</span> descender</td></tr><tr>
+    <td><a id="ref_23" href="#callout_23">23</a></td><td>Psa.</td><td>88:16</td></tr><tr>
+    <td><a id="ref_24" href="#callout_24">24</a></td><td>2Sam.</td><td>3:8</td><td>stress-helper <span class="romanized">zarqa</span></td></tr><tr>
+    <td><a id="ref_25" href="#callout_25">25</a></td><td>Isa.</td><td>33:20</td><td rowspan="2">orphan <span class="romanized">sheva</span></td></tr><tr>
+    <td><a id="ref_26" href="#callout_26">26</a></td><td>Eze.</td><td>8:3</td></tr><tr>
+    <td><a id="ref_27" href="#callout_27">27</a></td><td>Exo.</td><td>20:2<sup>M</sup>3<sup>U</sup></td><td rowspan="4"><span class="small-caps">qupo</span> words</td></tr><tr>
+    <td><a id="ref_28" href="#callout_28">28</a></td><td>Deut.</td><td>5:6<sup>M</sup>7<sup>U</sup></td></tr><tr>
+    <td><a id="ref_29" href="#callout_29">29</a></td><td>Exo.</td><td>20:3<sup>M</sup>4<sup>U</sup></td></tr><tr>
+    <td><a id="ref_30" href="#callout_30">30</a></td><td>Deut.</td><td>5:7<sup>M</sup>8<sup>U</sup></td></tr><tr>
+    <td><a id="ref_31" href="#callout_31">31</a></td><td>Exo.</td><td>20:12<sup>M</sup>15<sup>U</sup></td><td rowspan="4">other dually-cant. words</td></tr><tr>
+    <td><a id="ref_32" href="#callout_32">32</a></td><td>Deut.</td><td>5:16<sup>M</sup>19<sup>U</sup></td></tr><tr>
+    <td><a id="ref_33" href="#callout_33">33</a></td><td>Exo.</td><td>20:4<sup>M</sup>5<sup>U</sup></td></tr><tr>
+    <td><a id="ref_34" href="#callout_34">34</a></td><td>Deut.</td><td>5:8<sup>M</sup>9<sup>U</sup></td></tr><tr>
+    <td><a id="ref_35" href="#callout_35">35</a></td><td>2Sam.</td><td>19:20</td><td rowspan="5">overburdened letters</td></tr><tr>
+    <td><a id="ref_36" href="#callout_36">36</a></td><td>Deut.</td><td>23:14</td></tr><tr>
+    <td><a id="ref_37" href="#callout_37">37</a></td><td>Isa.</td><td>66:19</td></tr><tr>
+    <td><a id="ref_38" href="#callout_38">38</a></td><td>Gen.</td><td>32:33</td></tr><tr>
+    <td><a id="ref_39" href="#callout_39">39</a></td><td>Exo.</td><td>27:20</td></tr><tr>
+    <td><a id="ref_40" href="#callout_40">40</a></td><td>Gen.</td><td>6:4</td><td rowspan="7">The <span class="romanized">alef ḥolam</span> …</td></tr><tr>
+    <td><a id="ref_41" href="#callout_41">41</a></td><td>Eze.</td><td>26:10</td></tr><tr>
+    <td><a id="ref_42" href="#callout_42">42</a></td><td>Koh.</td><td>7:11</td></tr><tr>
+    <td><a id="ref_43" href="#callout_43">43</a></td><td>Psa.</td><td>89:12</td></tr><tr>
+    <td><a id="ref_44" href="#callout_44">44</a></td><td>Song</td><td>7:6</td></tr><tr>
+    <td><a id="ref_45" href="#callout_45">45</a></td><td>Ezra</td><td>2:69</td></tr><tr>
+    <td><a id="ref_46" href="#callout_46">46</a></td><td>Jer.</td><td>29:10</td></tr>
+</table><h2 id="index">Index of Biblical references</h2><table>
+    <tr>
+    <th>N</th>
+    <th>book</th>
+    <th>c:v</th>
+    <th>section or subsection</th>
+    </tr><tr>
+    <td><a href="#callout_9">9</a></td><td rowspan="5">Gen.</td><td>5:29</td><td><span class="romanized">geresh</span>-<span class="small-caps">tg</span> &amp; <span class="romanized">gershayim</span>-<span class="small-caps">tg</span></td></tr><tr>
+    <td><a href="#callout_40">40</a></td><td>6:4</td><td>The <span class="romanized">alef ḥolam</span> …</td></tr><tr>
+    <td><a href="#callout_1">1</a></td><td>6:15</td><td>upside-down <span class="romanized">qamats qatan</span></td></tr><tr>
+    <td><a href="#callout_3">3</a></td><td>19:34</td><td>short <span class="romanized">meteg</span></td></tr><tr>
+    <td><a href="#callout_38">38</a></td><td>32:33</td><td>overburdened letters</td></tr><tr>
+    <td><a href="#callout_27">27</a></td><td rowspan="5">Exo.</td><td>20:2<sup>M</sup>3<sup>U</sup></td><td><span class="small-caps">qupo</span> words</td></tr><tr>
+    <td><a href="#callout_29">29</a></td><td>20:3<sup>M</sup>4<sup>U</sup></td><td><span class="small-caps">qupo</span> words</td></tr><tr>
+    <td><a href="#callout_33">33</a></td><td>20:4<sup>M</sup>5<sup>U</sup></td><td>other dually-cant. words</td></tr><tr>
+    <td><a href="#callout_31">31</a></td><td>20:12<sup>M</sup>15<sup>U</sup></td><td>other dually-cant. words</td></tr><tr>
+    <td><a href="#callout_39">39</a></td><td>27:20</td><td>overburdened letters</td></tr><tr>
+    <td><a href="#callout_11">11</a></td><td>Lev.</td><td>10:4</td><td><span class="romanized">geresh</span>-<span class="small-caps">tg</span> &amp; <span class="romanized">gershayim</span>-<span class="small-caps">tg</span></td></tr><tr>
+    <td><a href="#callout_28">28</a></td><td rowspan="5">Deut.</td><td>5:6<sup>M</sup>7<sup>U</sup></td><td><span class="small-caps">qupo</span> words</td></tr><tr>
+    <td><a href="#callout_30">30</a></td><td>5:7<sup>M</sup>8<sup>U</sup></td><td><span class="small-caps">qupo</span> words</td></tr><tr>
+    <td><a href="#callout_34">34</a></td><td>5:8<sup>M</sup>9<sup>U</sup></td><td>other dually-cant. words</td></tr><tr>
+    <td><a href="#callout_32">32</a></td><td>5:16<sup>M</sup>19<sup>U</sup></td><td>other dually-cant. words</td></tr><tr>
+    <td><a href="#callout_36">36</a></td><td>23:14</td><td>overburdened letters</td></tr><tr>
+    <td><a href="#callout_13">13</a></td><td>1Sam.</td><td>14:24</td><td>competing <span class="romanized">ḥolam ḥaser</span></td></tr><tr>
+    <td><a href="#callout_24">24</a></td><td rowspan="2">2Sam.</td><td>3:8</td><td>stress-helper <span class="romanized">zarqa</span></td></tr><tr>
+    <td><a href="#callout_35">35</a></td><td>19:20</td><td>overburdened letters</td></tr><tr>
+    <td><a href="#callout_7">7</a></td><td>2Kgs.</td><td>17:13</td><td><span class="romanized">geresh</span>-<span class="small-caps">tg</span> &amp; <span class="romanized">gershayim</span>-<span class="small-caps">tg</span></td></tr><tr>
+    <td><a href="#callout_25">25</a></td><td rowspan="4">Isa.</td><td>33:20</td><td>orphan <span class="romanized">sheva</span></td></tr><tr>
+    <td><a href="#callout_19">19</a></td><td>44:8</td><td><span class="romanized">lamed</span> ascender</td></tr><tr>
+    <td><a href="#callout_2">2</a></td><td>66:12</td><td><span class="romanized">ḥataf qamats qatan</span></td></tr><tr>
+    <td><a href="#callout_37">37</a></td><td>66:19</td><td>overburdened letters</td></tr><tr>
+    <td><a href="#callout_46">46</a></td><td>Jer.</td><td>29:10</td><td>The <span class="romanized">alef ḥolam</span> …</td></tr><tr>
+    <td><a href="#callout_26">26</a></td><td rowspan="5">Eze.</td><td>8:3</td><td>orphan <span class="romanized">sheva</span></td></tr><tr>
+    <td><a href="#callout_41">41</a></td><td>26:10</td><td>The <span class="romanized">alef ḥolam</span> …</td></tr><tr>
+    <td><a href="#callout_12">12</a></td><td>27:16</td><td>competing <span class="romanized">ḥolam ḥaser</span></td></tr><tr>
+    <td><a href="#callout_6">6</a></td><td>44:13</td><td><span class="romanized">qamats qatan</span> w/ <span class="romanized">mer.</span> or <span class="romanized">mun.</span></td></tr><tr>
+    <td><a href="#callout_8">8</a></td><td>48:10</td><td><span class="romanized">geresh</span>-<span class="small-caps">tg</span> &amp; <span class="romanized">gershayim</span>-<span class="small-caps">tg</span></td></tr><tr>
+    <td><a href="#callout_10">10</a></td><td>Tsef.</td><td>2:15</td><td><span class="romanized">geresh</span>-<span class="small-caps">tg</span> &amp; <span class="romanized">gershayim</span>-<span class="small-caps">tg</span></td></tr><tr>
+    <td><a href="#callout_4">4</a></td><td rowspan="10">Psa.</td><td>5:10</td><td><span class="romanized">atnaḥ hafukh</span> &amp; <span class="romanized">yeraḥ ben yomo</span></td></tr><tr>
+    <td><a href="#callout_18">18</a></td><td>27:13</td><td><span class="romanized">lamed</span> ascender</td></tr><tr>
+    <td><a href="#callout_5">5</a></td><td>35:10</td><td><span class="romanized">qamats qatan</span> w/ <span class="romanized">mer.</span> or <span class="romanized">mun.</span></td></tr><tr>
+    <td><a href="#callout_20">20</a></td><td>42:6</td><td><span class="romanized">deḥi</span></td></tr><tr>
+    <td><a href="#callout_17">17</a></td><td>87:4</td><td><span class="romanized">lamed</span> ascender</td></tr><tr>
+    <td><a href="#callout_23">23</a></td><td>88:16</td><td><span class="romanized">ayin</span> descender</td></tr><tr>
+    <td><a href="#callout_43">43</a></td><td>89:12</td><td>The <span class="romanized">alef ḥolam</span> …</td></tr><tr>
+    <td><a href="#callout_22">22</a></td><td>107:12</td><td><span class="romanized">ayin</span> descender</td></tr><tr>
+    <td><a href="#callout_15">15</a></td><td>129:2</td><td><span class="romanized">revia mugrash</span></td></tr><tr>
+    <td><a href="#callout_21">21</a></td><td>135:2</td><td><span class="romanized">deḥi</span></td></tr><tr>
+    <td><a href="#callout_44">44</a></td><td>Song</td><td>7:6</td><td>The <span class="romanized">alef ḥolam</span> …</td></tr><tr>
+    <td><a href="#callout_42">42</a></td><td>Koh.</td><td>7:11</td><td>The <span class="romanized">alef ḥolam</span> …</td></tr><tr>
+    <td><a href="#callout_16">16</a></td><td>Dan.</td><td>11:24</td><td><span class="romanized">lamed</span> ascender</td></tr><tr>
+    <td><a href="#callout_45">45</a></td><td>Ezra</td><td>2:69</td><td>The <span class="romanized">alef ḥolam</span> …</td></tr><tr>
+    <td><a href="#callout_14">14</a></td><td>2Chr.</td><td>14:7</td><td>competing <span class="romanized">ḥolam ḥaser</span></td></tr>
+</table>
+</body>
+</html>

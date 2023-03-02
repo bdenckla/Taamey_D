@@ -1,0 +1,101 @@
+body {
+    font-size: 14pt;
+}
+*.xataf_qamats_qatan {
+    font-feature-settings: 'ss01';
+}
+*.qamats_qatan_meteg_qatan {
+    font-feature-settings: 'ss01', 'ss02';
+}
+*.qamats_qatan_hafukh {
+    font-feature-settings: 'ss03';
+}
+*.xataf_qamats_qatan_hafukh {
+    font-feature-settings: 'ss04', 'ss03'; /* analogous to ss01 */
+}
+*.qamats_qatan_meteg_qatan_hafukh {
+    font-feature-settings: 'ss04', 'ss05'; /* analogous to ss01,ss02 */
+}
+*.wide-word-spacing {
+    word-spacing: 2rem;
+}
+*.wide-letter-spacing {
+    letter-spacing: .6rem;
+}
+*.normal-word-spacing {
+    word-spacing: normal;
+}
+@font-face {
+    font-family: "Taamey D WOFF2";
+    src: url("woff2/Taamey_D.woff2");
+}
+@font-face {
+    font-family: "Taamey Frank CLM WOFF2";
+    src: url("woff2/TaameyFrankCLM-Medium.woff2");
+}
+@font-face {
+    font-family: "SBL Hebrew WOFF2";
+    src: url("woff2/SBLHebrew.woff2");
+}
+@font-face {
+    font-family: "Ezra SIL WOFF2";
+    src: url("woff2/EzraSIL.woff2");
+}
+*.font-family-taamey-b {
+    font-family: "Taamey B";
+    font-size: 250%;
+}
+*.font-family-taamey-d {
+    font-family: "Taamey D WOFF2";
+    font-size: 250%;
+}
+*.font-family-taamey-frank-clm {
+    font-family: "Taamey Frank CLM WOFF2";
+    font-size: 250%;
+}
+*.font-family-taamey-frank-clm-inline {
+    font-family: "Taamey Frank CLM WOFF2";
+    font-size: 100%;
+}
+*.font-family-sbl-hebrew {
+    font-family: "SBL Hebrew WOFF2";
+    font-size: 250%;
+}
+*.font-family-ezra-sil {
+    font-family: "Ezra SIL WOFF2";
+    font-size: 195%;
+    /* Ezra SIL is always weirdly large so we use it at 78% of what we use for Taamey & SBL */
+}
+span.attention { color: hsl(300, 87%, 59%); }
+span.mam-implicit-maqaf { color: gray; }
+span.romanized { font-style: italic }
+span.small-caps,
+span.unicode-code-point-name {
+    font-variant: small-caps;
+}
+span.unicode-code-point-name {
+    color: hsl(203, 92%, 42%);
+}
+span.hair-space-before:before {
+    content: "\200A"; /* hair space */
+}
+span.hair-space-after:after {
+    content: "\200A"; /* hair space */
+}
+table.border-collapse { border-collapse: collapse }
+table.break-inside-avoid { break-inside: avoid }
+p, ul { text-align: justify; }
+th, td {
+    padding-right: 0.4em;
+    padding-left: 0.4em;
+}
+td { vertical-align: baseline;}
+th { font-weight: normal; }
+td[rowspan] {
+    border: 0.08em solid;
+    vertical-align: middle;
+}
+pre, code { font-size: 85% }
+/* rt: ruby text */
+/* rt.ketiv { font-size: smaller } */
+/* rt.parallel { font-size: inherit } */
