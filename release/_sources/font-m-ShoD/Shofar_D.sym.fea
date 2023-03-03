@@ -1,0 +1,681 @@
+languagesystem hebr dflt;
+
+lookup ccmp01Misc {  # See "Note on joiner removal"
+  sub cgj xiriq by xiriq;  # 1: LAUcI, LAOcI, or LAcIO (in YRUSLM  (YRUSaLa[Y]iM)))  (S=shin)
+  sub cgj sheva by sheva;  # 2: LAUcE, LAOcE, or LAcEO (in YRUSLMH (YRUSaLa[Y]eMaH)) (S=shin)
+  sub cgj patax by patax;  # 3: QUcPO (preferred) or QUOcP (in mitachat & panay)
+  sub cgj meteg by meteg;  # 4: UcM (under-accent, CGJ, meteg)
+  sub meteg cgj by meteg;  # 5: McV (meteg, CGJ, vowel) ("early meteg")
+  sub qamats zerojoin by qamats;  # 6: QzUPO encoding of panay used by UXLC
+  #
+  sub xatafsegol zerojoin meteg by xatafsegol_meteg;
+  sub xatafpatax zerojoin meteg by xatafpatax_meteg;
+  sub xatafqamats zerojoin meteg by xatafqamats_meteg;  # does not occur in UXLC
+  # since xqamats-zwj-mtg does not occur in UXLC, we don't bother having a qatan version
+  #
+  sub vav xolam by vavxolam;
+  #
+  sub finalkaf sheva by finalkafsheva;  # finalkaf dagesh sheva stays as-is
+  sub finalkaf qamats by finalkafqamats;  # finalkaf dagesh qamats stays as-is
+} ccmp01Misc;
+
+@dots_for_shinbase = [shindot sindot];
+
+lookup ccmp02ShinDotAndSinDot {
+  lookupflag UseMarkFilteringSet @dots_for_shinbase;
+  sub shin shindot by trueshin;
+  sub shin sindot by sin;
+  sub shindagesh shindot by trueshindagesh;
+  sub shindagesh sindot by sindagesh;
+} ccmp02ShinDotAndSinDot;
+
+@dagesh_n_rafe = [dagesh rafe];
+
+lookup ccmp03DageshAndRafeh {  # See Note on missing dagesh compositions
+  lookupflag UseMarkFilteringSet @dagesh_n_rafe;
+  sub alef dagesh by alefmapiq;
+  sub bet dagesh by betdagesh;
+  sub gimel dagesh by gimeldagesh;
+  sub dalet dagesh by daletdagesh;
+  sub he dagesh by hedagesh;
+  sub vav dagesh by vavdou;
+  sub zayin dagesh by zayindagesh;
+  sub tet dagesh by tetdagesh;
+  sub yod dagesh by yoddagesh;
+  sub finalkaf dagesh by finalkafdagesh;
+  sub kaf dagesh by kafdagesh;
+  sub lamed dagesh by lameddagesh;
+  sub mem dagesh by memdagesh;
+  sub nun dagesh by nundagesh;
+  sub samekh dagesh by samekhdagesh;
+  sub finalpe dagesh by finalpedagesh;
+  sub pe dagesh by pedagesh;
+  sub tsadi dagesh by tsadidagesh;
+  sub qof dagesh by qofdagesh;
+  sub resh dagesh by reshdagesh;
+  sub shin dagesh by shindagesh;
+  sub trueshin dagesh by trueshindagesh;
+  sub sin dagesh by sindagesh;
+  sub tav dagesh by tavdagesh;
+} ccmp03DageshAndRafeh;
+
+@blw_ims = [atnax tipxa tevir atnaxhafukh munax mahapakh merkha merkhakefula darga yeraxbenyomo];
+@abv_ims = [
+  jsvarika
+  telishagedola.hlp
+  segolta.hlp telishaqetana.hlp pashta.hlp tsinor.hlp zarqahlp
+  zaqefqatan zaqefgadol
+  gereshacc gershayimacc
+  shalshelet revia qarneypara pazer qadma ole iluy];
+@wide_vows = [tsere segol patax qamats qubuts qamatsqatan];  # wide but not xataf
+@xatafs = [xatafsegol xatafpatax xatafqamats xatafqamats.qatan];
+@blw_vows = [@wide_vows @xatafs sheva xiriq];
+@xolam_star = [xolam xolamxfv];
+@vows = [@blw_vows @xolam_star];
+@mics = [xatafsegol_meteg xatafpatax_meteg xatafqamats_meteg];  # mic = meteg inside [of] xataf [vowel]
+@vows_n_mics = [@vows @mics];
+@shinfamily = [shin shindagesh trueshin trueshindagesh sin sindagesh];
+@finalkaffamily = [finalkaf finalkafdagesh finalkafsheva finalkafqamats];
+@letters = [
+  alef alefmapiq alef.xolam alef.con
+  bet betdagesh
+  gimel gimeldagesh
+  dalet daletdagesh
+  he hedagesh
+  vav vavxolam vavdou
+  zayin zayindagesh
+  xet
+  tet tetdagesh
+  yod yoddagesh
+  @finalkaffamily
+  kaf kafdagesh
+  lamed lameddagesh
+  finalmem
+  mem memdagesh
+  finalnun
+  nun nundagesh
+  samekh samekhdagesh
+  ayin ayin.alt
+  finalpe finalpedagesh
+  pe pedagesh
+  finaltsadi
+  tsadi tsadidagesh
+  qof qofdagesh
+  resh reshdagesh
+  @shinfamily
+  tav tavdagesh
+  dottedcircle];
+
+lookup ccmp04AlefToAlefCon { # XXX vavdou not always a shuruq; could be a vav-as-con with a dagesh
+  lookupflag UseMarkFilteringSet @vows_n_mics;
+  sub alef' [@vows_n_mics vavxolam vavdou] by alef.con;
+} ccmp04AlefToAlefCon;
+
+lookup AlefXolam {
+  sub alef by alef.xolam;
+  sub xolam by xolam.invis;
+} AlefXolam;
+
+@xolam_solo = [xolam];
+
+lookup ccmp05AlefXolam {
+  lookupflag UseMarkFilteringSet @xolam_solo;
+  sub xolam' lookup AlefXolam alef' lookup AlefXolam;
+  # Read as follows:
+  # sub xolam' (lookup AlefXolam) alef' (lookup AlefXolam);
+} ccmp05AlefXolam;
+
+@blw_vows_n_mtg = [@blw_vows meteg];
+@blws = [@blw_ims @blw_vows_n_mtg @mics];  # not really all belows; missing prepos (yetiv & dexi)
+@blw_wides = [@blw_ims @wide_vows @xatafs @mics];
+@narlets = [gimel gimeldagesh vav vavdou vavxolam zayin zayindagesh yod yoddagesh finalnun nun nundagesh];
+@unarlets = [vav vavdou vavxolam yod yoddagesh];  # ultra-narrow letters (subset of narrows)
+@rtdesc_finals = [@finalkaffamily finalnun finalpe finalpedagesh];
+
+lookup kern1AddThin {  # XXX Symbolize the various integer literals in this lookup.
+  lookupflag UseMarkFilteringSet @blws;
+  pos @narlets' <100 0 100 0> @blw_wides       @narlets @blw_wides @blws;
+  pos @unarlets' <100 0 100 0> @blw_wides      @unarlets @blws @blw_wides;
+  pos @narlets' <100 0 100 0> @blws @blw_wides @narlets @blws;
+  pos @narlets' <100 0 100 0> @blws @blw_wides @rtdesc_finals;
+  pos @narlets' <100 0 100 0> @blws @blw_wides @letters @blw_wides @blws;
+} kern1AddThin;
+
+lookup kern2AddThin {  # XXX Symbolize the various integer literals in this lookup.
+  lookupflag UseMarkFilteringSet @blws;
+  pos @letters' <100 0 100 0> @blws @blws @narlets @blws @blws @blws;
+  pos @letters' <100 0 100 0> @xatafs     @narlets @blw_wides @blws;
+} kern2AddThin;
+
+@patax_qamats_xiriq_sheva = [patax qamats xiriq sheva];
+
+lookup ccmp06JerusalemOrphans {  # See "Note on orphans"
+  lookupflag UseMarkFilteringSet @patax_qamats_xiriq_sheva;
+  sub [patax qamats] xiriq' finalmem by xiriq.orphan;
+  sub [patax qamats] sheva' mem by sheva.orphan;
+} ccmp06JerusalemOrphans;
+
+@tg_tq_seg_tsi = [telishagedola telishaqetana segolta pashta tsinor];
+
+lookup ccmp07TgTqSegTsiToTheirHlpVariants {
+  lookupflag UseMarkFilteringSet @tg_tq_seg_tsi;
+  sub @letters @letters telishagedola' by telishagedola.hlp;
+  sub @letters telishagedola @letters telishagedola' by telishagedola.hlp;
+  sub telishaqetana' @letters by telishaqetana.hlp;
+  sub segolta' @letters by segolta.hlp;
+  sub pashta' @letters by pashta.hlp;
+  sub tsinor' @letters by tsinor.hlp;
+} ccmp07TgTqSegTsiToTheirHlpVariants;
+
+lookup ccmp08Ger12ToGer12PreIfFollowedByTrueTg {  # See "Note on Ger12Pre"
+  sub gershayimacc' telishagedola by gershayimacc.pre;
+  sub gereshacc' telishagedola by gereshacc.pre;
+} ccmp08Ger12ToGer12PreIfFollowedByTrueTg;
+
+
+lookup ccmp09AyinAlt {
+  sub ayin' @blws @blws @blws by ayin.alt;  # עֶ֤֥בֶד in Deut. Decalogue
+  sub ayin' @blws [atnaxhafukh yeraxbenyomo] by ayin.alt;
+  sub ayin' @blws [zayin zayindagesh] [patax qamats] by ayin.alt;
+} ccmp09AyinAlt;
+
+@furtive_patax_carriers = [xet ayin hedagesh he];
+# Above, note that ayin.alt is not included.
+# I suppose it wouldn't hurt to include it, except to perhaps be misleading,
+# since ayin.alt never carries furtive patax.
+# Above, note that plain he, i.e. he withough dagesh (mappiq) is included.
+# Plain he should never carry furtive patax, but in UXLC (and presumably LC)
+# it does.
+
+@patax_solo = [patax];
+
+lookup ccmp10FurtivePatax {
+  lookupflag UseMarkFilteringSet @patax_solo;
+  ignore sub patax' @letters;
+  sub @letters       @furtive_patax_carriers patax' by patax.furtive;
+  sub @letters patax @furtive_patax_carriers patax' by patax.furtive; # שְׁלִ֖יַחַ
+  # Above, שְׁלִ֖יַחַ is likely an error in the LC, but we support it in order
+  # to be able to render the error.
+} ccmp10FurtivePatax;
+
+lookup ccmp11SpecialCaseFixups {
+  sub xet patax.furtive' tipxa by patax;  # "de-furtivize" the patax
+  # Above is to support נִבְחַ֖ז with sub-runs נִבְחַ֖/ז.
+  sub mem patax pashta' by pashta.hlp;
+  # Above is to support פַּרְמַ֙שְׁתָּא֙ with sub-runs פַּרְמַ֙/שְׁ/תָּא֙.
+} ccmp11SpecialCaseFixups;
+
+@orphans = [xiriq.orphan sheva.orphan];
+
+lookup mark1BlwMarks {
+  # XXX Do we need to support dotted circle in this way/at all? If we need to support dotted circle, add tests for it.
+  #
+  # finalmem & finaltsadi seem to never take a bvom... xxx check this
+  #
+  markClass dagesh <anchor 0 0> @A4_bvoms; # only on xet, only in UXLC in מַחֲּמַדִּ֑ים in Song 5:16!
+  markClass shindot <anchor -330 0> @A4_bvoms;  # only for dottedcircle; symbolize?
+  markClass sindot <anchor 357 0> @A4_bvoms;  # only for dottedcircle; symbolize?
+  #
+  markClass [sheva xiriq meteg @wide_vows @xatafs @mics] <anchor 0 0> @A4_bvoms;
+  markClass @orphans <anchor 0 0> @A4_orphans;
+  #
+  markClass [patax.furtive] <anchor -200 0> @A4_bvoms;  # XXX symbolize
+  #
+  pos base [alef alefmapiq alef.xolam alef.con] <anchor $halfwidth_alef 0> mark @A4_bvoms;
+  pos base [bet betdagesh] <anchor $halfwidth_bet 0> mark @A4_bvoms;
+  pos base [gimel gimeldagesh] <anchor $halfwidth_gimel 0> mark @A4_bvoms;
+  pos base [dalet daletdagesh] <anchor $halfwidth_dalet 0> mark @A4_bvoms;
+  pos base [he hedagesh] <anchor $halfwidth_he 0> mark @A4_bvoms;
+  pos base [vav vavdou vavxolam] <anchor $halfwidth_vav 0> mark @A4_bvoms;
+  pos base [zayin zayindagesh] <anchor $halfwidth_zayin 0> mark @A4_bvoms;
+  pos base xet <anchor $halfwidth_xet 0> mark @A4_bvoms;
+  pos base [tet tetdagesh] <anchor $halfwidth_tet 0> mark @A4_bvoms;
+  pos base [yod yoddagesh] <anchor $halfwidth_yod 0> mark @A4_bvoms;
+  pos base @finalkaffamily <anchor $A4_finalkaf 0> mark @A4_bvoms;
+  pos base [kaf kafdagesh] <anchor $halfwidth_kaf 0> mark @A4_bvoms;
+  pos base [lamed lameddagesh] <anchor $halfwidth_lamed 0> mark @A4_bvoms;
+  pos base [mem memdagesh] <anchor $halfwidth_mem 0> mark @A4_bvoms;
+  pos base finalnun <anchor $A4_finalnun 0> mark @A4_bvoms;
+  pos base [nun nundagesh] <anchor $halfwidth_nun 0> mark @A4_bvoms;
+  pos base [samekh samekhdagesh] <anchor $halfwidth_samekh 0> mark @A4_bvoms;
+  pos base [ayin ayin.alt] <anchor $halfwidth_ayin 0> mark @A4_bvoms;
+  pos base [finalpe finalpedagesh] <anchor $halfwidth_finalpe 0> mark @A4_bvoms;
+  pos base [pe pedagesh] <anchor $halfwidth_pe 0> mark @A4_bvoms;
+  pos base [tsadi tsadidagesh] <anchor $halfwidth_tsadi 0> mark @A4_bvoms;
+  pos base [qof qofdagesh] <anchor $A4_qof 0> mark @A4_bvoms;
+  pos base [resh reshdagesh] <anchor $halfwidth_resh 0> mark @A4_bvoms;
+  pos base @shinfamily <anchor $halfwidth_shin 0> mark @A4_bvoms;
+  pos base [tav tavdagesh] <anchor $halfwidth_tav 0> mark @A4_bvoms;
+  pos base dottedcircle <anchor $halfwidth_dottedcircle 0> mark @A4_bvoms;
+  #
+  pos base [lamed lameddagesh] <anchor -96 0> mark @A4_orphans;  # XXX symbolize
+
+  #
+  markClass [tevir merkha merkhakefula atnax atnaxhafukh darga yeraxbenyomo mahapakh munax tipxa] <anchor 0 0> @A4_bvoms;
+  markClass lowerdot <anchor 0 0> @A4_bvoms;
+  markClass [yetiv dexi] <anchor 0 0> @A41_yetiv_dexi;
+  #
+  pos base [alefmapiq alef.con] <anchor $width_alef 0> mark @A41_yetiv_dexi;
+  pos base [bet betdagesh] <anchor $width_bet 0> mark @A41_yetiv_dexi;
+  pos base [gimel gimeldagesh] <anchor $width_gimel 0> mark @A41_yetiv_dexi;
+  pos base [dalet daletdagesh] <anchor $width_dalet 0> mark @A41_yetiv_dexi;
+  pos base [he hedagesh] <anchor $width_he 0> mark @A41_yetiv_dexi;
+  # vav below
+  # zayin below
+  pos base xet <anchor $width_xet 0> mark @A41_yetiv_dexi;
+  pos base [tet tetdagesh] <anchor $width_tet 0> mark @A41_yetiv_dexi;
+  # yod below
+  # no finalkaf family
+  pos base [kaf kafdagesh] <anchor $width_kaf 0> mark @A41_yetiv_dexi;
+  pos base [lamed lameddagesh] <anchor $width_lamed 0> mark @A41_yetiv_dexi;
+  # no finalmem
+  pos base [mem memdagesh] <anchor $width_mem 0> mark @A41_yetiv_dexi;
+  # no finalnun
+  # nun below
+  pos base [samekh samekhdagesh] <anchor $width_samekh 0> mark @A41_yetiv_dexi;
+  pos base [ayin ayin.alt] <anchor $width_ayin 0> mark @A41_yetiv_dexi;
+  # no final pe
+  pos base [pe pedagesh] <anchor $width_pe 0> mark @A41_yetiv_dexi;
+  # no finaltsadi
+  pos base [tsadi tsadidagesh] <anchor $width_tsadi 0> mark @A41_yetiv_dexi;
+  pos base [qof qofdagesh] <anchor $width_qof 0> mark @A41_yetiv_dexi;
+  pos base [resh reshdagesh] <anchor $width_resh 0> mark @A41_yetiv_dexi;
+  pos base @shinfamily <anchor $width_shin 0> mark @A41_yetiv_dexi;
+  pos base [tav tavdagesh] <anchor $width_tav 0> mark @A41_yetiv_dexi;
+  pos base dottedcircle <anchor $width_dottedcircle 0> mark @A41_yetiv_dexi;
+  #
+  pos base [vav vavdou vavxolam] <anchor $A41_yetiv_dexi_vav 0> mark @A41_yetiv_dexi;
+  pos base [zayin zayindagesh] <anchor $A41_yetiv_dexi_zayin 0> mark @A41_yetiv_dexi;
+  pos base [yod yoddagesh] <anchor $A41_yetiv_dexi_yod 0> mark @A41_yetiv_dexi;
+  pos base [nun nundagesh] <anchor $A41_yetiv_dexi_nun 0> mark @A41_yetiv_dexi;
+
+} mark1BlwMarks;
+
+lookup DexiRelBaseInWvohMtgCtxt {  # Wvoh: wide vowel or xataf (really wide) vowel
+  # I.e. dexi relative to base in a context where both a Wvoh & meteg are preset.
+  # The Wvoh & meteg can be in either order, i.e. the meteg can be early or normal.
+  markClass dexi <anchor -50 0> @A68_dexi;  # XXX symbolize
+  pos base [vav vavdou vavxolam] <anchor $A68_dexi_vav 0> mark @A68_dexi;
+  pos base [yod yoddagesh] <anchor $A68_dexi_yod 0> mark @A68_dexi;
+  pos base [lamed lameddagesh] <anchor $width_lamed 0> mark @A68_dexi;
+  pos base [ayin ayin.alt] <anchor $width_ayin 0> mark @A68_dexi;
+} DexiRelBaseInWvohMtgCtxt;
+
+
+@blws_incl_dexi = [@blws dexi];
+
+lookup mark2BalanceVyingBlwMarks {  # See "Note on mark040"
+  lookupflag UseMarkFilteringSet @blws_incl_dexi;
+  #
+  # XXX Symbolize the various integer literals in this lookup.
+  #
+  pos finalkafqamats meteg' <107 0 0 0> munax;
+  pos finalkafqamats @blw_ims' <0 0 0 0> [@blw_ims meteg];  # to prevent matching on cases below
+  #
+  pos [qof qofdagesh] @blw_vows' <350 0 0 0> @blws;
+  #
+  pos @blw_vows' <298 0 0 0> @blws @blws;
+  pos meteg' <319 0 0 0> @blws @blws;
+  #
+  pos [vav vavdou vavxolam] @blw_vows' <127 0 0 0> @blws dexi;
+  pos [vav vavdou vavxolam] meteg' <213 0 0 0> @blws dexi;
+  pos [@wide_vows @xatafs] meteg dexi' lookup DexiRelBaseInWvohMtgCtxt;
+  pos meteg [@wide_vows @xatafs] dexi' lookup DexiRelBaseInWvohMtgCtxt;
+  pos @mics dexi' lookup DexiRelBaseInWvohMtgCtxt;
+  #
+  pos @blw_vows' <50 0 0 0> @blws dexi;
+  pos meteg' <136 0 0 0> @blws dexi;
+  #
+  pos @blw_vows' <150 0 0 0> @blws;
+  pos @blw_ims' <150 0 0 0> [@blw_ims meteg];
+  pos meteg' <150 0 0 0> [sheva xiriq];
+  pos meteg' <272 0 0 0> @wide_vows;
+  pos meteg' <383 0 0 0> @xatafs;
+  pos meteg' <170 0 0 0> @blws;
+} mark2BalanceVyingBlwMarks;
+
+lookup mark3BalanceVyingTsereAndLd {
+  pos tsere' <200 0 0 0> lowerdot' <-200 0 0 0>;
+} mark3BalanceVyingTsereAndLd;
+
+lookup mark4AbvMarks {  # XXX Symbolize the various integer literals in this lookup.
+  markClass @xolam_star <anchor -212 0> @A20_xolam;
+
+  markClass segolta <anchor -50 0> @A30_popo;
+  markClass telishaqetana <anchor -81 0> @A30_popo;
+  markClass tsinor <anchor -93 0> @A30_popo;
+  markClass pashta <anchor -191 0> @A30_popo;
+  #
+  markClass telishagedola <anchor 25 0> @A27_prepo;
+  markClass [gereshmuqdam gereshacc.pre gershayimacc.pre] <anchor 75 0> @A27_prepo;
+  #
+  markClass [@abv_ims upperdot rafe] <anchor 0 0> @A23_impo;
+  #
+  #
+  # Default & custom xolam positioning
+  #
+  pos base @letters <anchor -50 0> mark @A20_xolam;
+  pos base [vav vavdou vavxolam] <anchor -118 0> mark @A20_xolam;
+  pos base [zayin zayindagesh] <anchor -75 0> mark @A20_xolam;
+  pos base [yod yoddagesh] <anchor -150 0> mark @A20_xolam;
+  pos base [lamed lameddagesh] <anchor -213 -50> mark @A20_xolam;
+  #
+  # Default & custom popo positioning.
+  #
+  pos base @letters <anchor 0 0> mark @A30_popo;
+  pos base vavxolam <anchor -75 0> mark @A30_popo;  # -75 due to xolam male dot in vavxolam
+  pos base [lamed lameddagesh] <anchor -300 0> mark @A30_popo;  # -300 due to ascender
+  #
+  # Only impo, no prepo
+  #
+  pos base @finalkaffamily <anchor $halfwidth_finalkaf 0> mark @A23_impo;
+  pos base finalmem <anchor $halfwidth_finalmem 0> mark @A23_impo;
+  pos base finalnun <anchor $halfwidth_finalnun 0> mark @A23_impo;
+  pos base [finalpe finalpedagesh] <anchor $halfwidth_finalpe 0> mark @A23_impo;
+  pos base finaltsadi <anchor $halfwidth_finaltsadi 0> mark @A23_impo;
+  #
+  # prepo & impo
+  #
+  pos base [alef alef.xolam alefmapiq alef.con] <anchor $width_alef 0> mark @A27_prepo <anchor $halfwidth_alef 0> mark @A23_impo;
+  pos base [bet betdagesh] <anchor $width_bet 0> mark @A27_prepo <anchor $halfwidth_bet 0> mark @A23_impo;
+  pos base [gimel gimeldagesh] <anchor $width_gimel 0> mark @A27_prepo <anchor $halfwidth_gimel 0> mark @A23_impo;
+  pos base [dalet daletdagesh] <anchor $width_dalet 0> mark @A27_prepo <anchor $halfwidth_dalet 0> mark @A23_impo;
+  pos base [he hedagesh] <anchor $width_he 0> mark @A27_prepo <anchor $halfwidth_he 0> mark @A23_impo;
+  pos base [vav vavdou vavxolam] <anchor $width_vav 0> mark @A27_prepo <anchor $halfwidth_vav 0> mark @A23_impo;
+  pos base [zayin zayindagesh] <anchor $width_zayin 0> mark @A27_prepo <anchor $halfwidth_zayin 0> mark @A23_impo;
+  pos base xet <anchor $width_xet 0> mark @A27_prepo <anchor $halfwidth_xet 0> mark @A23_impo;
+  pos base [tet tetdagesh] <anchor $width_tet 0> mark @A27_prepo <anchor $halfwidth_tet 0> mark @A23_impo;
+  pos base [yod yoddagesh] <anchor $width_yod 0> mark @A27_prepo <anchor $halfwidth_yod 0> mark @A23_impo;
+  pos base [kaf kafdagesh] <anchor $width_kaf 0> mark @A27_prepo <anchor $halfwidth_kaf 0> mark @A23_impo;
+  # Note custom ($A23_lamed) below
+  pos base [lamed lameddagesh] <anchor $width_lamed 0> mark @A27_prepo <anchor $A23_lamed 0> mark @A23_impo;  # custom ($A23_lamed)
+  pos base [mem memdagesh] <anchor $width_mem 0> mark @A27_prepo <anchor $halfwidth_mem 0> mark @A23_impo;
+  pos base [nun nundagesh] <anchor $width_nun 0> mark @A27_prepo <anchor $halfwidth_nun 0> mark @A23_impo;
+  pos base [samekh samekhdagesh] <anchor $width_samekh 0> mark @A27_prepo <anchor $halfwidth_samekh 0> mark @A23_impo;
+  pos base [ayin ayin.alt] <anchor $width_ayin 0> mark @A27_prepo <anchor $halfwidth_ayin 0> mark @A23_impo;
+  pos base [pe pedagesh] <anchor $width_pe 0> mark @A27_prepo <anchor $halfwidth_pe 0> mark @A23_impo;
+  pos base [tsadi tsadidagesh] <anchor $width_tsadi 0> mark @A27_prepo <anchor $halfwidth_tsadi 0> mark @A23_impo;
+  pos base [qof qofdagesh] <anchor $width_qof 0> mark @A27_prepo <anchor $halfwidth_qof 0> mark @A23_impo;
+  pos base [resh reshdagesh] <anchor $width_resh 0> mark @A27_prepo <anchor $halfwidth_resh 0> mark @A23_impo;
+  pos base @shinfamily <anchor $width_shin 0> mark @A27_prepo <anchor $halfwidth_shin 0> mark @A23_impo;
+  pos base [tav tavdagesh] <anchor $width_tav 0> mark @A27_prepo <anchor $halfwidth_tav 0> mark @A23_impo;
+  pos base dottedcircle <anchor $width_dottedcircle 0> mark @A27_prepo <anchor $halfwidth_dottedcircle 0> mark @A23_impo;
+} mark4AbvMarks;
+
+lookup XolamViesWithAbvAccOnNarLet {  # xolam_star vies with an above-accent on a narrow letter
+  markClass @xolam_star <anchor -212 0> @A22_xolam;  # symbolize
+  pos base [gimel gimeldagesh] <anchor $A22_gimel 0> mark @A22_xolam;
+  pos base [vav vavdou vavxolam] <anchor $A22_vav 0> mark @A22_xolam;
+  pos base [zayin zayindagesh] <anchor $A22_zayin 0> mark @A22_xolam;
+  pos base [yod yoddagesh] <anchor $A22_yod 0> mark @A22_xolam;
+  pos base [nun nundagesh] <anchor $A22_nun 0> mark @A22_xolam;
+  #
+  pos base [dalet daletdagesh] <anchor $A22_dalet 0> mark @A22_xolam;
+  pos base [resh reshdagesh] <anchor $A22_resh 0> mark @A22_xolam;
+  pos base [pe pedagesh] <anchor $A22_pe 0> mark @A22_xolam;
+  pos base [ayin ayin.alt] <anchor $A22_ayin 0> mark @A22_xolam;
+} XolamViesWithAbvAccOnNarLet;
+
+@vying_abv_marks = [@abv_ims @xolam_star gereshmuqdam pashta upperdot];
+
+lookup mark5BalanceVyingAbvMarks {  # XXX Symbolize the various integer literals in this lookup.
+  lookupflag UseMarkFilteringSet @vying_abv_marks;
+  pos [gimel gimeldagesh vav vavdou vavxolam zayin zayindagesh yod yoddagesh nun nundagesh]
+    @xolam_star' lookup XolamViesWithAbvAccOnNarLet
+    @abv_ims;
+  pos [dalet daletdagesh resh reshdagesh pe pedagesh ayin ayin.alt]
+    @xolam_star' lookup XolamViesWithAbvAccOnNarLet
+    [zarqahlp tsinor.hlp segolta.hlp];
+  #
+  # To avoid collision with revia, scoot the gereshmuqdam "back" (to the right) 100 units.
+  # I did not include vav in the letter class below because in practice it does not appear with revia mugrash. XXX check this
+  # The pattern below could be thrown off by xolam_star being in the mark filtering set, but in practice it is not thrown off, i.e. xolam_star is not present in those cases.
+  #
+  pos [gimel gimeldagesh zayin zayindagesh yod yoddagesh nun nundagesh] gereshmuqdam' <100 0 0 0> revia;
+  #
+  # To avoid collision with the lamed ascender, lift up the qarneypara by 175 and scoot it "back" (to the right) by 50.
+  #
+  pos [lamed lameddagesh] qarneypara' <50 175 0 0>;
+  #
+  # To avoid collision with upperdot, move the pashta a little down and a little "forward" (to the left).
+  # We support both orders, upperdot-then-pashta and pashta-then-upperdot.
+  #
+  pos [nun vavdou] upperdot pashta' <-50 -50 0 0>;
+  pos [nun vavdou] pashta' <-50 -50 0 0> upperdot;
+  #
+  pos upperdot' <-175 0 0 0> @abv_ims' <100 0 0 0>;
+  pos @abv_ims' <100 0 0 0> upperdot' <-175 0 0 0>;
+  #
+  pos @abv_ims' <225 0 0 0> @abv_ims;
+} mark5BalanceVyingAbvMarks;
+
+# XXX what finals other than finalkaf take an accent and/or vowel?
+# XXX what vowels other than qamats & sheva does finalkaf take? i.e. since finalkafqamats & finalkafsheva exist, does plain finalkaf take anything?
+
+
+lookup mkmk4AbvMarks {  # XXX Symbolize the various integer literals in this lookup.
+  markClass [telishagedola telishagedola.hlp] <anchor -151 0> @A57;
+  markClass [zaqefqatan pazer] <anchor -75 0> @A57;
+  markClass [gereshacc gershayimacc] <anchor -45 0> @A57;
+  markClass revia <anchor 0 0> @A57;
+  pos mark [zaqefqatan revia] <anchor -425 0> mark @A57;
+  pos mark pazer <anchor -478 0> mark @A57;
+  pos mark [gershayimacc gershayimacc.pre] <anchor -567 0> mark @A57;
+  pos mark [gereshacc gereshacc.pre] <anchor -467 0> mark @A57;
+} mkmk4AbvMarks;
+
+lookup mkmk1BlwMarks {
+  markClass meteg <anchor $mkmk1_mc_meteg 0> @A45;
+  markClass tipxa <anchor $mkmk1_mc_tipxa 0> @A45;
+  markClass merkha <anchor $mkmk1_mc_merkha 0> @A45;
+  markClass darga <anchor $mkmk1_mc_darga 0> @A45;
+  markClass sheva <anchor $mkmk1_mc_sheva 0> @A45;  # See "Note on xiriq-then-sheva" below.
+  markClass [patax qamats] <anchor $mkmk1_mc_patax 0> @A45;  # See "Note on ahahs" below.
+  markClass munax <anchor $mkmk1_mc_munax 0> @A45;
+  markClass [atnax atnaxhafukh yeraxbenyomo] <anchor $mkmk1_mc_atnax 0> @A45;
+  markClass mahapakh <anchor $mkmk1_mc_mahapakh 0> @A45;
+  markClass tevir <anchor $mkmk1_mc_tevir 0> @A45;
+  markClass merkhakefula <anchor $mkmk1_mc_merkhakefula 0> @A45;
+  pos mark [sheva xiriq] <anchor $mkmk1_pm_sheva 0> mark @A45;
+  pos mark [tsere segol] <anchor $mkmk1_pm_tsere 0> mark @A45;
+  pos mark [patax qamats qamatsqatan] <anchor $mkmk1_pm_patax 0> mark @A45;
+  pos mark qubuts <anchor $mkmk1_pm_qubuts 0> mark @A45;
+  pos mark xatafsegol <anchor $mkmk1_pm_hsegol 0> mark @A45;
+  pos mark [xatafqamats xatafqamats.qatan] <anchor $mkmk1_pm_hqamats 0> mark @A45;
+  pos mark xatafpatax <anchor $mkmk1_pm_hpatax 0> mark @A45;
+} mkmk1BlwMarks;
+
+lookup mkmk2BlwMarks {
+  lookupflag UseMarkFilteringSet @blws;
+  markClass meteg <anchor $mkmk2_mc_meteg 0> @A53;
+  markClass tipxa <anchor $mkmk2_mc_tipxa 0> @A53;
+  markClass merkha <anchor $mkmk2_mc_merkha 0> @A53;
+  markClass munax <anchor $mkmk2_mc_munax 0> @A53;
+  markClass atnax <anchor $mkmk2_mc_atnax 0> @A53;
+  markClass mahapakh <anchor $mkmk2_mc_mahapakh 0> @A53;
+  markClass tevir <anchor $mkmk2_mc_tevir 0> @A53;
+  #
+  markClass [sheva xiriq] <anchor $mkmk2_mc_sheva 0> @A71;
+  markClass tsere <anchor $mkmk2_mc_tsere 0> @A71;
+  markClass segol <anchor $mkmk2_mc_segol 0> @A71;
+  markClass [patax qamats] <anchor $mkmk2_mc_qamats 0> @A71;
+  markClass qubuts <anchor $mkmk2_mc_qubuts 0> @A71;
+  markClass xatafpatax <anchor $mkmk2_mc_hpatax 0> @A71;
+  #
+  pos mark meteg <anchor $mkmk2_pm_meteg 0> mark @A53;
+  pos mark tipxa <anchor $mkmk2_pm_tipxa 0> mark @A53;
+  pos mark merkha <anchor $mkmk2_pm_merkha 0> mark @A53;
+  pos mark tevir <anchor $mkmk2_pm_tevir 0> mark @A53;
+  pos mark munax <anchor $mkmk2_pm_munax 0> mark @A53;
+  pos mark mahapakh <anchor $mkmk2_pm_mahapakh 0> mark @A53;
+  pos mark atnax <anchor $mkmk2_pm_atnax 0> mark @A53;
+  #
+  pos mark atnax <anchor $mkmk2_pm_atnax 0> mark @A71;  # atnax-then-patax happens in the QUPO word mitachtat.
+  #
+  pos mark meteg <anchor $mkmk2_pm_meteg 0> mark @A71;
+} mkmk2BlwMarks;
+
+lookup mkmk3BlwMarksMisc {
+  # motivated by יָקֻ֑מוּ Isaiah 26:14
+  markClass atnax <anchor $mkmk3_mc_atnax 0> @A_qubuts_misc;
+  pos mark qubuts <anchor $mkmk1_pm_qubuts 0> mark @A_qubuts_misc;
+} mkmk3BlwMarksMisc;
+
+feature ss01 {
+  sub xatafqamats by xatafqamats.qatan;
+} ss01;
+
+feature ccmp {
+  lookup ccmp01Misc;
+  lookup ccmp02ShinDotAndSinDot;
+  lookup ccmp03DageshAndRafeh;
+  lookup ccmp04AlefToAlefCon;
+  lookup ccmp05AlefXolam;
+  lookup ccmp06JerusalemOrphans;
+  lookup ccmp07TgTqSegTsiToTheirHlpVariants;
+  lookup ccmp08Ger12ToGer12PreIfFollowedByTrueTg;
+  lookup ccmp09AyinAlt;
+  lookup ccmp10FurtivePatax;
+  lookup ccmp11SpecialCaseFixups;
+} ccmp;
+
+feature mark {
+  # Note that order doesn't matter here. I.e. order of lookup reference within a feature doesn't matter. Only order of lookup DEFINITION matters.
+  lookup mark1BlwMarks;
+  lookup mark2BalanceVyingBlwMarks;
+  lookup mark3BalanceVyingTsereAndLd;
+  lookup mark4AbvMarks;
+  lookup mark5BalanceVyingAbvMarks;
+} mark;
+
+feature mkmk {
+  lookup mkmk1BlwMarks;
+  lookup mkmk2BlwMarks;
+  lookup mkmk3BlwMarksMisc;
+  lookup mkmk4AbvMarks;
+} mkmk;
+
+feature kern {
+  lookup kern1AddThin;
+  lookup kern2AddThin;
+} kern;
+
+########
+# Note on xiriq-then-sheva
+########
+# The combo xiriq-then-sheva occurs in UXLC in the word תִּ͏ְירָא֑וּם, in D 3:22.
+# Visually, it has xiriq-then-sheva (xiriq to the right of sheva) under tav with dagesh.
+# Logically, it is encoded by UXLC as tav, dagesh, xiriq, CGJ, sheva.
+
+########
+# Note on ahahs
+########
+# UXLC encodes mitachat as raw QUPO (no ZWJ or CGJ).
+# UXLC encodes panay as QzUPO (z=ZWJ).
+#
+# After normalization (applied by HarfBuzz or web browser),
+# these become (i.e. are mangled to) PQUO & QzPUO respectively.
+#
+# After we remove the ZWJ in QzPUO,
+# we have PQUO (unchanged) & QPUO.
+#
+# We call the PQ & QP "ahahs": patax-then-qamats & vice versa.
+# I.e. an "ah"-sounding vowel followed by another "ah"-sounding vowel.
+#
+# I think these ahahs are both the result of bad initial encodings,
+# but I endeavor to handle them here, nonetheless.
+
+########
+# Note on joiner removal
+########
+# More advanced .fea compilers might accept "sub cgj by;" (sub cgj by nothing),
+# which could be used instead of the 5 lines of the form "sub cgj x by x" and "sub x cgj by x".
+# Below, in LA[UO]c[IE]:
+#    L=lamed, A=qamats or patax, U=under-accent, O=over-accent, c=CGJ, E=sheva, I=xiriq.
+# Below, in QUcPO:
+#    Q=qamats, U=under-accent, c=CGJ, P=patax, O=over-accent.
+# Below, we use the terms "under-accent" & "over-accent"
+# where elsewhere we use "below-accent" & "above-accent".
+# 1: LAUI, LAOI, or LAIO is the result
+# 2: LAUE, LAOE, or LAEO is the result
+# 3: QUPO is the result
+# 4: UM is the result
+# 5: MV is the result
+# 6: QUPO is the result
+
+########
+# Note on mark040
+########
+# This lookup answers the question:
+#
+#    Now that we've positioned bvoms relative to base,
+#    i.e. now that we've run mark1BlwMarks,
+#    if there is more than one below-mark,
+#    how much further "back" (to the right) should we scoot the 1st bvom
+#    to make room for the additional below-mark(s)?
+#
+# Like, let's say we have tsere and then merkha.
+# Now that we've positioned tsere relative to base,
+# how much further "back" (to the right) should we scoot tsere
+# to make room for merkha?
+
+########
+# Note on orphans
+########
+# The patterns used to identify orphans catch all of the following cases:
+#    LAV = LA[IE] = LAI, LAE
+#    LAXV = LA[UO][IE] = LAUI, LAOI, LAUE, LAOE
+#    LAVX = LA[IE][UO] = LAIU, LAIO, LAEU, LAEO
+# LAVU cases should not exist, since there is no reason, visual or logical, that
+# the under-accent should come last.
+# I.e. the only patterns that make sense are LAV, LAUV, LAOV, & LAVO.
+# I.e. the only ambiguity in encoding is between LAOV & LAVO.
+
+########
+# Note on Ger12Pre
+########
+# Ger12 = geresh acc. (Ger1) or gershayim acc. (Ger2)
+# TrueTg = "true" (i.e. prepositive, i.e. non-helper) telisha gedolah.
+# We assume this lookup is applied only after telishagedola.hlp has been distinguished from telishagedola.
+# I.e. we want the Ger12 accents to stay as they are if they are followed by telishagedola.hlp.
+# Or, another way of putting it is, we only want the Ger12 accents to become prepositive if they
+# are followed by (true, prepositive, non-helper) telisha gedolah.
+
+########
+# Note on missing dagesh compositions
+########
+# The following dagesh compositions are missing, by design: xet, mem sofit, nun sofit, ayin, & tsadi sofit.
+# Note that none of these exist in practice except xet dagesh.
+# The combo xet dagesh exists in UXLC in מַחֲּמַדִּ֑ים in Song 5:16.
+
+########
+# Note on unrelated rules thrown together
+########
+# In general we throw a lot of unrelated rules together in the same lookup
+# if in practice those rules don't interfere, even if theoretically they could interfere.
+# I'm not sure what performance benefit, if any, this strategy has, but my unsubstantiated guess
+# was that it was a good idea.
+
+########
+# Note on things we used to do in this file
+########
+#
+# We used to do the following, due to shin dot:
+#    lookup kernAddThin3 {
+#      lookupflag UseMarkFilteringSet @xolam_star;
+#      pos [yod yoddagesh lamed lameddagesh]' <100 0 100 0> @xolam_star [trueshin trueshindagesh];
+#    } kernAddThin3;
+#
+# We used to customize the trueshin family's abv-prepo anchor to be 1492 (width + 200) instead of 1292 (width)
+# to avoid collision with the shin dot that used to be part of the trueshin family.
+#
+# We used to customize the sin family's abv-popo anchor to -100 instead of 0
+# to avoid collision with the sin dot that used to be part of the sin family.
+#
+# On trueshin, we used to lift up gereshacc.pre by 125 when it appeared (as it only does) with telishagedola
+# to avoid collision with the shin dot that used to be part of the trueshin family. This was the code:
+#
+#    pos trueshin qubuts gereshacc.pre' <0 125 0 0> telishagedola;
+#
+# (The tg followed suit, i.e. automatically also lifted up, due to mkmk, at least in HarfBuzz.
+# I think I saw it NOT follow suit on Windows (DirectWrite).)
