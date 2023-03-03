@@ -1,0 +1,10 @@
+__pycache__
+license.txt
+*-nofea.sfd
+*.ttf
+*.woff
+*.woff2
+*_D.fea
+*_B.fea
+*_D.sfd
+*_B.sfd
