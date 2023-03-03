@@ -1,0 +1,12 @@
+release.zip-me
+release.zip
+sources/__pycache__
+sources/**/license.txt
+sources/**/*-nofea.sfd
+sources/**/*.ttf
+sources/**/*.woff
+sources/**/*.woff2
+sources/**/*_D.fea
+sources/**/*_B.fea
+sources/**/*_D.sfd
+sources/**/*_B.sfd
