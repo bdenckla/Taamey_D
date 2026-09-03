@@ -20,7 +20,7 @@ OS2Version: 0
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 0
 CreationTime: 1244295734
-ModificationTime: 1677003751
+ModificationTime: 1753572928
 PfmFamily: 17
 TTFWeight: 500
 TTFWidth: 5
@@ -98,7 +98,7 @@ NameList: Adobe Glyph List
 DisplaySize: -96
 AntiAlias: 1
 FitToEm: 1
-WinInfo: 119 17 10
+WinInfo: 136 17 10
 BeginPrivate: 2
 BlueValues 44 [-26 0 220 240 795 821 1036 1056 1201 1201 ]
 OtherBlues 11 [-351 -345]
@@ -114,7 +114,7 @@ Grid
  975 1056.5 l 1049
 EndSplineSet
 TeXData: 1 0 0 349184 174592 116394 407040 -1048576 116394 783286 444596 497025 792723 393216 433062 380633 303038 157286 324010 404750 52429 2506097 1059062 262144
-BeginChars: 277 277
+BeginChars: 300 300
 
 StartChar: .notdef
 Encoding: 248 -1 0
@@ -3715,7 +3715,7 @@ Refer: 50 1468 N 1 0 0 1 347.5 0 2
 LCarets2: 1 0
 EndChar
 
-StartChar: hedagesh
+StartChar: hemapiq
 Encoding: 225 64308 132
 Width: 1071
 GlyphClass: 2
@@ -7811,6 +7811,289 @@ Flags: HW
 LayerCount: 2
 Fore
 Refer: 273 -1 N 1 0 0 -1 0 -821.314 2
+EndChar
+
+StartChar: betdagesh.xazaq
+Encoding: 277 -1 277
+Width: 967
+Flags: W
+HStem: 0 21G<81 864.5> 437 164<418.037 543.963> 814 242<226.873 681.119>
+VStem: 77.5 812<3.21359 237.167> 411 140<442.219 595.781> 714.5 94<279.884 787.84>
+LayerCount: 2
+Fore
+Refer: 63 1489 N 1 0 0 1 0 0 3
+Refer: 298 1481 N 1 0 0 1 481 0 2
+EndChar
+
+StartChar: gimeldagesh.xazaq
+Encoding: 278 -1 278
+Width: 665
+Flags: HW
+HStem: -18 21G<54.2975 262 545.628 590.5> 437 164<161.037 286.963>
+VStem: 140 318<845.272 1021.93> 154 140<442.219 595.781> 376 66<471.249 778.764>
+LayerCount: 2
+Fore
+Refer: 64 1490 N 1 0 0 1 0 0 3
+Refer: 298 1481 S 1 0 0 1 201 67 2
+EndChar
+
+StartChar: daletdagesh.xazaq
+Encoding: 279 -1 279
+Width: 879
+Flags: HW
+HStem: -25 21G<511.9 574> 437 164<284.537 410.463> 814 242<173.935 679.5>
+VStem: 77.5 724<852.394 1041.81> 277.5 140<442.219 595.781> 525.5 123<143.668 679.193> 534.5 136<27.1783 504.594>
+LayerCount: 2
+Fore
+Refer: 65 1491 N 1 0 0 1 0 0 3
+Refer: 298 1481 S 1 0 0 1 321.5 0 2
+EndChar
+
+StartChar: vavdagesh.xazaq
+Encoding: 280 -1 280
+Width: 510
+Flags: W
+HStem: -17 21G<338 382.5> 437 164<99.037 224.963>
+VStem: 92 140<442.219 595.781> 338 90<-0.64933 768.585>
+LayerCount: 2
+Fore
+Refer: 67 1493 N 1 0 0 1 0 0 2
+Refer: 298 1481 N 1 0 0 1 162 0 2
+EndChar
+
+StartChar: zayindagesh.xazaq
+Encoding: 281 -1 281
+Width: 656
+Flags: W
+HStem: -25 21G<308 374.5> 462 164<62.037 187.963> 808 258<269.008 382>
+VStem: 55 140<467.219 620.781> 179 422<859.427 1007.23> 308 99<352.119 737.264> 340 129<28.4895 475.245>
+LayerCount: 2
+Fore
+Refer: 68 1494 N 1 0 0 1 62 0 2
+Refer: 298 1481 N 1 0 0 1 125 25 2
+EndChar
+
+StartChar: tetdagesh.xazaq
+Encoding: 282 -1 282
+Width: 1015
+Flags: HW
+HStem: 0 21G<252.5 826> 467 164<576.037 701.963> 814 254<178.154 231.5 267.068 330.842 612.387 789.069>
+VStem: 103.5 296<848.21 1034.95> 145.5 27<1106.15 1135> 181.5 65<430.32 764.846> 452.5 32<659.416 687.917> 569 140<472.219 625.781> 834.5 77<324.933 759.18>
+LayerCount: 2
+Fore
+Refer: 70 1496 N 1 0 0 1 0 0 3
+Refer: 298 1481 S 1 0 0 1 561 -65 2
+EndChar
+
+StartChar: yoddagesh.xazaq
+Encoding: 283 -1 283
+Width: 464
+Flags: HW
+HStem: 480 655 569 164<70.037 195.963>
+VStem: 63 140<574.219 727.781> 65 334<858.393 1016.53> 311 88<588.458 808.291>
+LayerCount: 2
+Fore
+Refer: 71 1497 N 1 0 0 1 -7.8125e-06 0 2
+Refer: 298 1481 S 1 0 0 1 78 132 2
+EndChar
+
+StartChar: finalkafdagesh.xazaq
+Encoding: 284 -1 284
+Width: 846
+Flags: W
+HStem: 437 164<308.037 433.963> 815 242<178.304 610>
+VStem: 82 682<848.065 1037.66> 301 140<442.219 595.781> 610 84<318.144 814.25> 613 114<-326.305 212.679>
+LayerCount: 2
+Fore
+Refer: 72 1498 N 1 0 0 1 0 0 3
+Refer: 298 1481 N 1 0 0 1 371 0 2
+EndChar
+
+StartChar: kafdagesh.xazaq
+Encoding: 285 -1 285
+Width: 942
+Flags: W
+HStem: 0 21G<100.5 481.5> 437 164<420.037 545.963> 814 242<227.935 677.592>
+VStem: 413 140<442.219 595.781> 749.5 92<313.818 739.228>
+LayerCount: 2
+Fore
+Refer: 73 1499 N 1 0 0 1 0 0 3
+Refer: 298 1481 N 1 0 0 1 483 0 2
+EndChar
+
+StartChar: lameddagesh.xazaq
+Encoding: 286 -1 286
+Width: 901
+Flags: HW
+HStem: -22 21G<441.5 486.5> 487 164<419.037 544.963> 814 242<210.833 741.877>
+VStem: 60 216<1369.45 1501.97> 386 138<-10.9431 201.118> 412 140<492.219 645.781> 753 88<507.446 796.452>
+LayerCount: 2
+Fore
+Refer: 74 1500 N 1 0 0 1 0 0 3
+Refer: 298 1481 S 1 0 0 1 436 56 2
+EndChar
+
+StartChar: memdagesh.xazaq
+Encoding: 287 -1 287
+Width: 1094
+Flags: HW
+HStem: 0 21G<146 215 387.5 890.477> 437 164<562.037 687.963>
+VStem: 136.5 292<887.218 1044.48> 143.5 71<0 356.515> 363.5 56<771 886> 555 140<442.219 595.781> 872.5 85<243.407 652.011>
+LayerCount: 2
+Fore
+Refer: 76 1502 N 1 0 0 1 0 0 3
+Refer: 298 1481 S 1 0 0 1 625 -44 2
+EndChar
+
+StartChar: nundagesh.xazaq
+Encoding: 288 -1 288
+Width: 614
+Flags: HW
+HStem: 0 21G<67 540.5> 437 164<171.037 296.963>
+VStem: 164 140<442.219 595.781> 189 88<1065.73 1120.31> 189 332<851.93 1023.85> 407 140<240 377.309> 423 62<320.438 799.691>
+LayerCount: 2
+Fore
+Refer: 78 1504 N 1 0 0 1 0 0 3
+Refer: 298 1481 S 1 0 0 1 220 0 2
+EndChar
+
+StartChar: samekhdagesh.xazaq
+Encoding: 289 -1 289
+Width: 1038
+Flags: W
+HStem: -22 226<339.835 729.328> 467 164<470.037 595.963> 814 242<272.926 741.978>
+VStem: 126 94<327.321 694.362> 463 140<472.219 625.781> 822 90<299.157 737.888>
+LayerCount: 2
+Fore
+Refer: 79 1505 N 1 0 0 1 0 0 3
+Refer: 298 1481 S 1 0 0 1 533 30 2
+EndChar
+
+StartChar: finalpedagesh.xazaq
+Encoding: 290 -1 290
+Width: 886
+Flags: HW
+HStem: -350 21G<680 734.5> 388 164<479.037 604.963> 390 189<272.635 383.633> 814 242<233.438 635>
+VStem: 92 106<453.5 682.059> 472 140<393.219 546.781> 680 114<-328.098 476.6>
+LayerCount: 2
+Fore
+Refer: 81 1507 N 1 0 0 1 0 0 3
+Refer: 298 1481 S 1 0 0 1 482 -335 2
+EndChar
+
+StartChar: pedagesh.xazaq
+Encoding: 291 -1 291
+Width: 912
+Flags: W
+HStem: 0 21G<97 476.5> 450 164<503.037 628.963> 814 242<221.533 653.449>
+VStem: 97 106<550.5 756.516> 496 140<455.219 608.781> 742 73<327.434 728.5>
+LayerCount: 2
+Fore
+Refer: 82 1508 N 1 0 0 1 0 0 3
+Refer: 298 1481 S 1 0 0 1 566 13 2
+EndChar
+
+StartChar: tsadidagesh.xazaq
+Encoding: 292 -1 292
+Width: 968
+Flags: W
+HStem: 0 21G<165 794.368> 320 164<138.037 263.963>
+VStem: 86 309<850.812 1037.65> 131 140<325.219 478.781> 321 58<631.73 800.501> 566 316<842.543 1027.54>
+LayerCount: 2
+Fore
+Refer: 84 1510 N 1 0 0 1 0 0 2
+Refer: 298 1481 S 1 0 0 1 201 -117 2
+EndChar
+
+StartChar: qofdagesh.xazaq
+Encoding: 293 -1 293
+Width: 997
+Flags: W
+HStem: -345 21G<151.5 195> -22 21G<393 436.5> 502 164<430.037 555.963> 814 242<209.548 777.625>
+VStem: 151.5 108<-318.311 642.289> 316.5 163<-4.43365 194.179> 423 140<507.219 660.781> 794.5 89<498.159 788.739>
+LayerCount: 2
+Fore
+Refer: 85 1511 N 1 0 0 1 0 0 3
+Refer: 298 1481 S 1 0 0 1 493 65 2
+EndChar
+
+StartChar: shindagesh.xazaq
+Encoding: 294 -1 294
+Width: 1292
+Flags: HW
+HStem: 0 21G<256 891> 428 164<691.037 816.963> 754 300<255.67 349.686 707.421 757.415>
+VStem: 88 293<849.792 1025.57> 172 65<410.832 793.815> 500 297<866.012 1028.75> 684 140<433.219 586.781> 1073 131<718 949.5>
+LayerCount: 2
+Fore
+Refer: 87 1513 N 1 0 0 1 0 0 3
+Refer: 298 1481 S 0.866025 -0.5 0.5 0.866025 493.366 60.3008 2
+EndChar
+
+StartChar: trueshindagesh.xazaq
+Encoding: 295 -1 295
+Width: 1292
+Flags: HW
+HStem: 0 21G<230.5 865.5> 428 164<664.537 790.463> 754 300<230.17 324.186 681.921 731.915> 1222 164<946.537 1072.46>
+VStem: 62.5 293<849.792 1025.57> 146.5 65<410.832 793.815> 474.5 297<866.012 1028.75> 657.5 140<433.219 586.781> 939.5 140<1227.22 1380.78> 1047.5 131<718 949.5>
+LayerCount: 2
+Fore
+Refer: 55 1473 N 1 0 0 1 1009.5 0 2
+Refer: 298 1481 S 0.866025 -0.5 0.5 0.866025 466.866 60.3008 2
+Refer: 87 1513 N 1 0 0 1 -25.5 0 3
+EndChar
+
+StartChar: sindagesh.xazaq
+Encoding: 296 -1 296
+Width: 1292
+Flags: HW
+HStem: 0 21G<256 891> 428 164<680.037 805.963> 754 300<255.67 349.686 707.421 757.415> 1225 164<255.037 380.963>
+VStem: 88 293<849.792 1025.57> 172 65<410.832 793.815> 248 140<1230.22 1383.78> 500 297<866.012 1028.75> 673 140<433.219 586.781> 1073 131<718 949.5>
+LayerCount: 2
+Fore
+Refer: 56 1474 N 1 0 0 1 318 3 2
+Refer: 298 1481 S 0.866025 -0.5 0.5 0.866025 482.366 60.3008 2
+Refer: 87 1513 N 1 0 0 1 0 0 3
+EndChar
+
+StartChar: tavdagesh.xazaq
+Encoding: 297 -1 297
+Width: 1026
+Flags: HW
+HStem: 0 4G<73 365.017 858 904> 437 164<551.037 676.963> 814 242<273.92 354 413 786.567>
+VStem: 235 87<240.132 670.859> 241 129<240 432.301> 544 140<442.219 595.781> 858 95<1.71359 738.791>
+LayerCount: 2
+Fore
+Refer: 88 1514 N 1 0 0 1 0 0 3
+Refer: 298 1481 S 1 0 0 1 604 -39 2
+EndChar
+
+StartChar: dageshxazaq
+Encoding: 298 1481 298
+Width: 0
+Flags: HW
+HStem: 437 164<-62.963 62.963>
+VStem: -70 140<442.219 595.781>
+LayerCount: 2
+Fore
+SplineSet
+-97 642 m 1
+ 95 642 l 1
+ 95 400 l 1
+ -97 400 l 1
+ -97 642 l 1
+EndSplineSet
+EndChar
+
+StartChar: reshdagesh.xazaq
+Encoding: 299 -1 299
+Width: 883
+Flags: HW
+HStem: -19 21G<715 759.5> 437 164<363.037 488.963> 814 242<173.435 646.523>
+VStem: 356 140<442.219 595.781> 715 91<-2.77539 745.317>
+LayerCount: 2
+Fore
+Refer: 86 1512 N 1 0 0 1 0 0 3
+Refer: 298 1481 S 1 0 0 1 426 -39 2
 EndChar
 EndChars
 EndSplineFont

@@ -5,14 +5,14 @@ import json
 
 def openw(path, **kwargs):
     os.makedirs(os.path.dirname(path), exist_ok=True)
-    return open(path, 'w', encoding='utf-8', **kwargs)
+    return open(path, "w", encoding="utf-8", **kwargs)
 
 
 def tmp_path(path):
     pathobj = pathlib.Path(path)
     # e.g. from /dfoo/dbar/stem.ext return /dfoo/dbar/stem.tmp.ext
     # where suffix = .ext
-    return pathobj.parent / (str(pathobj.stem) + '.tmp' + pathobj.suffix)
+    return pathobj.parent / (str(pathobj.stem) + ".tmp" + pathobj.suffix)
 
 
 def with_tmp_openw(path, callback, **kwargs):
@@ -25,12 +25,13 @@ def with_tmp_openw(path, callback, **kwargs):
 
 def std_json_dump_to_file_pointer(dumpable, pointer):
     json.dump(dumpable, pointer, indent=0, ensure_ascii=False)
-    pointer.write('\n')
+    pointer.write("\n")
 
 
 def std_json_dump_to_file_path(dumpable, path):
     def _write_callback(fp):
         std_json_dump_to_file_pointer(dumpable, fp)
+
     with_tmp_openw(path, _write_callback)
 
 
